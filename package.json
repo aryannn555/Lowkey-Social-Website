@@ -2,6 +2,11 @@
   "name": "lowkey",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://lowkeysocial.in",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aryannn555/Lowkey-Social-Website.git"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
