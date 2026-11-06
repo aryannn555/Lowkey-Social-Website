@@ -1,11 +1,18 @@
 # Lowkey — Campus-Exclusive Dating & Connections
 
+[![Next.js](https://img.shields.io/badge/Next.js-16.4-black?style=flat&logo=next.js)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=flat&logo=typescript)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-38bdf8?style=flat&logo=tailwind-css)](https://tailwindcss.com/)
+[![Three.js](https://img.shields.io/badge/Three.js-WebGL-black?style=flat&logo=three.js)](https://threejs.org/)
+[![License](https://img.shields.io/badge/License-MIT-pink?style=flat)](LICENSE)
+
 > "Lowkey into someone? So is your campus."
 
 Lowkey is a private, college-exclusive dating and social connections Android app built specifically for Indian college students. Signups are strictly gated by verified college email domains (e.g. `@acropolis.in`), ensuring every campus is its own isolated, trusted universe.
 
 Domain: **[lowkeysocial.in](https://lowkeysocial.in)**  
-Founder: **Aryan Gupta** (Acropolis Institute of Technology and Research, Indore)
+Founder: **Aryan Gupta** (Acropolis Institute of Technology and Research, Indore)  
+GitHub: **[https://github.com/aryannn555/Lowkey-Social-Website](https://github.com/aryannn555/Lowkey-Social-Website)**
 
 ---
 
@@ -27,6 +34,7 @@ Founder: **Aryan Gupta** (Acropolis Institute of Technology and Research, Indore
 - **Styling:** Tailwind CSS v4, custom CSS variables design system
 - **3D & Visuals:** Three.js, Canvas, Framer Motion
 - **Animations & Smooth Scroll:** GSAP, ScrollTrigger, Lenis smooth scroll
+- **Motion Suite:** OriginKit & Magic UI border beams, 3D tilt spotlight cards, campus marquee, live activity feed
 - **Database & Auth Backend:** Supabase (`@supabase/supabase-js`)
 - **Icons:** Lucide React
 - **Typography:** Clash Display (Headings), Satoshi (Body), JetBrains Mono (Labels & Code)
@@ -38,8 +46,8 @@ Founder: **Aryan Gupta** (Acropolis Institute of Technology and Research, Indore
 ### 1. Clone & Install Dependencies
 
 ```bash
-git clone https://github.com/aryan555/lowkey-website.git
-cd "lowkey social website"
+git clone https://github.com/aryannn555/Lowkey-Social-Website.git
+cd Lowkey-Social-Website
 npm install
 ```
 
