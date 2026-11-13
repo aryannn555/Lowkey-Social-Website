@@ -47,7 +47,6 @@ body {
   background: var(--ivory);
   color: var(--ink);
   font: 16px/1.6 var(--f-body);
-  overflow-x: clip;
   position: relative;
   min-height: 100vh;
 }
@@ -1144,105 +1143,63 @@ img {
 
 @media (max-width: 899px) {
   .hero {
-    padding: calc(env(safe-area-inset-top, 0px) + 84px) 16px 48px;
-    gap: 24px;
+    padding: calc(env(safe-area-inset-top, 0px) + 84px) 16px 36px;
+    gap: 20px;
   }
   .closing {
-    gap: 24px;
+    gap: 20px;
+    padding: 40px 16px 30px;
   }
   .close-act {
     margin-top: 0;
   }
   .fan {
-    width: calc((100vw - 32px) / 3);
+    width: min(72vw, 240px);
+    height: min(72vw, 240px);
+    margin: 0 auto;
+    position: relative;
   }
   .hero .ctas {
-    display: none;
-  }
-  .why {
-    font-size: 15px;
-  }
-  .pills {
-    flex-wrap: wrap;
-    justify-content: center;
-    overflow: visible;
-    width: auto;
-    margin-inline: 0;
-    padding: 0;
-    max-width: 360px;
-    gap: 6px;
-    -webkit-mask: none;
-    mask: none;
-  }
-  .pill:first-child,
-  .pill:last-child {
-    margin: 0;
-  }
-  .pill {
-    padding: 6px 12px 6px 8px;
-    font-size: 13.5px;
-    gap: 6px;
-  }
-  .pill .lucide {
-    width: 20px;
-    height: 20px;
+    display: flex !important;
+    justify-content: center !important;
+    width: 100% !important;
+    margin-top: 18px !important;
+    margin-bottom: 6px !important;
   }
   .desc {
     font-size: 16.5px;
     line-height: 1.6;
   }
   .words {
-    position: relative;
-    height: 220svh;
-    overflow-x: clip;
+    height: auto !important;
+    padding: 50px 16px 60px !important;
+    position: relative !important;
+    overflow: visible !important;
   }
   .words .pin {
-    position: sticky;
-    top: 0;
-    height: 100svh;
-    overflow: hidden;
-    display: grid;
-    place-items: center;
-    align-content: center;
-    gap: 18px;
-    padding: 0 18px;
+    position: relative !important;
+    height: auto !important;
+    top: auto !important;
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 16px !important;
   }
   .fl {
-    border-radius: 16px;
-  }
-  .fl.a {
-    left: 16px;
-    right: auto;
-    top: 4%;
-    width: 28vw;
-    height: 38vw;
-  }
-  .fl.b {
-    right: 16px;
-    left: auto;
-    top: 10%;
-    width: 24vw;
-    height: 34vw;
-  }
-  .fl.c {
-    left: 16px;
-    right: auto;
-    bottom: 10%;
-    width: 22vw;
-    height: 30vw;
-  }
-  .fl.d {
-    right: 16px;
-    left: auto;
-    bottom: 4%;
-    width: 30vw;
-    height: 42vw;
+    display: none !important;
   }
   .quote {
-    font-size: clamp(32px, 9vw, 44px);
+    font-size: clamp(26px, 7.5vw, 36px) !important;
+    max-width: 18ch !important;
+    color: var(--ink) !important;
+    line-height: 1.15 !important;
+  }
+  .quote .w {
+    color: var(--ink) !important;
   }
   .facts {
-    padding: 8svh 16px 6svh;
+    padding: 6svh 16px 5svh;
     gap: 10px;
   }
   .facts > h2 {
@@ -1250,7 +1207,7 @@ img {
   }
   .fgrid {
     gap: 8px;
-    margin-top: 3svh;
+    margin-top: 2svh;
   }
   .fc {
     min-height: 100px;
@@ -1268,11 +1225,58 @@ img {
   .fc dd {
     font-size: clamp(18px, 5vw, 22px);
   }
+  .story {
+    height: auto !important;
+    padding: 30px 0 50px !important;
+    position: relative !important;
+  }
+  .story-head {
+    position: relative !important;
+    top: auto !important;
+    margin-bottom: 20px !important;
+    text-align: center !important;
+    padding: 0 16px !important;
+  }
   .story-head h2 {
-    font-size: clamp(28px, 8vw, 40px);
+    font-size: clamp(28px, 8vw, 40px) !important;
+    color: var(--ink) !important;
   }
   .story-head p {
-    font-size: 14px;
+    font-size: 14px !important;
+    color: var(--ink-2) !important;
+  }
+  .story .pin {
+    position: relative !important;
+    height: auto !important;
+    top: auto !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    display: flex !important;
+    flex-direction: row !important;
+    scroll-snap-type: x mandatory !important;
+    gap: 16px !important;
+    padding: 10px 24px 24px !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    perspective: none !important;
+  }
+  .story .pin::-webkit-scrollbar {
+    display: none !important;
+  }
+  .story .card {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    margin: 0 !important;
+    width: calc(100vw - 48px) !important;
+    max-width: 350px !important;
+    height: 480px !important;
+    flex-shrink: 0 !important;
+    scroll-snap-align: center !important;
+    transform: none !important;
+    filter: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
   }
   .card {
     border-radius: 24px;
@@ -1303,7 +1307,7 @@ img {
     padding-bottom: 26px;
   }
   .cta {
-    height: 50px;
+    height: 52px;
     font-size: 15px;
   }
   .bar {
