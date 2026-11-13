@@ -1,26 +1,26 @@
 @import "tailwindcss";
 
 :root {
-  --ivory: #FBF7F0;
+  --ivory: #FDF0F4;
   --paper: #FFFFFF;
-  --sand: #EADFCC;
+  --sand: #F3D5DE;
   --ink: #1B1B1B;
   --ink-2: #55504A;
   --ink-3: #8B837A;
   --forest: #253F3A;
   --forest-2: #1C302C;
   --sage: #386058;
-  --gold: #AC7121;
-  --rose: #C26A54;
-  --mark: rgba(224, 168, 90, 0.3);
+  --gold: #C25B7C;
+  --rose: #D94876;
+  --mark: rgba(232, 88, 154, 0.22);
   --bg-mist: #D6E6DD;
-  --bg-cream: #EFDFC4;
-  --bg-blush: #F1D3C8;
+  --bg-cream: #F8DCE5;
+  --bg-blush: #F5D3DE;
   --bg-sky: #D3E0EE;
   --bg-moss: #DFE5C6;
-  --bg-honey: #F2D7A6;
-  --bg-card-7: #E6DDF0;
-  --bg-card-8: #F3DCCB;
+  --bg-honey: #F5D9BF;
+  --bg-card-7: #E8DDF0;
+  --bg-card-8: #F5DBE4;
 
   --f-display: "Inter Tight", "Clash Display", system-ui, -apple-system, sans-serif;
   --f-body: "DM Sans", "Satoshi", system-ui, -apple-system, sans-serif;
@@ -53,7 +53,7 @@ body {
 }
 
 ::selection {
-  background: #EBCB97;
+  background: #F8BBD0;
   color: var(--ink);
 }
 
@@ -113,10 +113,10 @@ img {
   pointer-events: none;
   background: linear-gradient(
     to bottom,
-    rgba(251, 247, 240, 0.9) 0%,
-    rgba(251, 247, 240, 0.72) 50%,
-    rgba(251, 247, 240, 0.3) 78%,
-    rgba(251, 247, 240, 0) 100%
+    rgba(253, 240, 244, 0.92) 0%,
+    rgba(253, 240, 244, 0.75) 50%,
+    rgba(253, 240, 244, 0.3) 78%,
+    rgba(253, 240, 244, 0) 100%
   );
 }
 
@@ -237,10 +237,10 @@ img {
   pointer-events: none;
   background: linear-gradient(
     to bottom,
-    rgba(251, 247, 240, 0) 0%,
-    rgba(251, 247, 240, 0.22) 45%,
-    rgba(251, 247, 240, 0.22) 60%,
-    rgba(251, 247, 240, 0) 100%
+    rgba(253, 240, 244, 0) 0%,
+    rgba(253, 240, 244, 0.25) 45%,
+    rgba(253, 240, 244, 0.25) 60%,
+    rgba(253, 240, 244, 0) 100%
   );
 }
 
@@ -460,7 +460,7 @@ img {
 }
 
 .quote .w {
-  color: #D9CFC1;
+  color: #E5C3CC;
   transition: color 0.25s;
 }
 
@@ -1004,7 +1004,8 @@ img {
   padding: 7px;
   border-radius: 22px;
   width: min(100%, 440px);
-  background: rgba(236, 226, 208, 0.96);
+  background: rgba(253, 240, 244, 0.96);
+  border: 1px solid rgba(243, 213, 222, 0.85);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
