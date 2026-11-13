@@ -197,14 +197,14 @@ export function DateCrewExperience() {
 
     // 2. Fan Geometry (DateCrew exact formula)
     const fanSlots = () => {
-      const w = fan ? fan.offsetWidth : 230;
       const desk = window.innerWidth >= 900;
-      const step = desk ? w * 0.78 : w * 0.5;
+      const w = fan ? fan.offsetWidth : (desk ? 230 : 150);
+      const step = desk ? w * 0.78 : w * 0.44;
       return [
-        { x: -1.5 * step, y: 30, r: -11 },
-        { x: -0.5 * step, y: 6, r: -4 },
-        { x: 0.5 * step, y: 6, r: 4 },
-        { x: 1.5 * step, y: 30, r: 11 },
+        { x: -1.35 * step, y: desk ? 30 : 14, r: desk ? -11 : -8 },
+        { x: -0.45 * step, y: desk ? 6 : 3, r: desk ? -4 : -3 },
+        { x: 0.45 * step, y: desk ? 6 : 3, r: desk ? 4 : 3 },
+        { x: 1.35 * step, y: desk ? 30 : 14, r: desk ? 11 : 8 },
       ];
     };
 
@@ -272,7 +272,11 @@ export function DateCrewExperience() {
       const Wb = desk ? Math.min(vw - 120, 1100) : vw - 24;
       G = { vw, vh, Wc, Hc, Wb, Hb, top, per: vh * (desk ? 0.48 : 0.4) };
       if (story) {
-        story.style.height = vh + (n - 0.2) * G.per + "px";
+        if (desk) {
+          story.style.height = vh + (n - 0.2) * G.per + "px";
+        } else {
+          story.style.height = "auto";
+        }
       }
     };
 
@@ -289,6 +293,7 @@ export function DateCrewExperience() {
     const cardState: CardStyleCache[] = cards.map(() => ({}));
 
     const renderCards = (P: number) => {
+      if (window.innerWidth < 900) return;
       const phase = clamp(P, 0, 1);
       const e = easeOut(phase);
       const qf = Math.max(0, P - 1);
@@ -378,9 +383,16 @@ export function DateCrewExperience() {
     measure();
     renderCards(0);
 
-    // Initial Stack
+    // Initial Fan Setup: always start spread out cleanly
     photos.forEach((el, i) => {
-      gsap.set(el, { ...stacked(i), transformOrigin: "50% 100%" });
+      const sl = fanSlots();
+      gsap.set(el, {
+        x: sl[i].x,
+        y: sl[i].y,
+        rotate: sl[i].r,
+        scale: 1,
+        transformOrigin: "50% 100%",
+      });
     });
 
     let spread = false;
@@ -584,9 +596,9 @@ export function DateCrewExperience() {
             }
       );
 
-    // 3D Carousel ScrollTrigger
+    // 3D Carousel ScrollTrigger (Desktop only)
     let st: ScrollTrigger | null = null;
-    if (story) {
+    if (story && window.innerWidth >= 900) {
       st = ScrollTrigger.create({
         trigger: story,
         start: "top top",
