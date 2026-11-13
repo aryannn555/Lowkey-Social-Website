@@ -54,7 +54,7 @@ export default function DownloadSection() {
   return (
     <section
       id="download"
-      aria-label="Download Lowkey Android App"
+      aria-label="Download Lowkey Social Android App"
       className="relative w-full min-h-screen py-24 sm:py-36 bg-[#080808] flex flex-col justify-center items-center overflow-hidden"
     >
       {/* Slowly rotating conic rays background */}

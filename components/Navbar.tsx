@@ -58,7 +58,7 @@ export default function Navbar() {
           aria-label="Lowkey Social - Home"
           className="group flex items-center gap-1 text-2xl font-bold font-clash tracking-[-1px] text-white select-none transition-transform active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--pink)] rounded-lg px-1"
         >
-          <span>lowkey</span>
+          <span>lowkey social</span>
           <span
             className="inline-block w-2 h-2 rounded-full bg-[var(--pink)] shadow-[0_0_12px_#E8589A] transition-transform group-hover:scale-125"
             aria-hidden="true"

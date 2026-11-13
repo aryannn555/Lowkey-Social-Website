@@ -5,8 +5,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata = {
-  title: "Privacy Policy | Lowkey",
-  description: "How Lowkey protects student data, campus privacy, and your identity.",
+  title: "Privacy Policy | Lowkey Social",
+  description: "How Lowkey Social protects student data, campus privacy, and your identity.",
 };
 
 export default function PrivacyPage() {
@@ -20,7 +20,7 @@ export default function PrivacyPage() {
           className="inline-flex items-center gap-2 text-xs font-mono-code text-[var(--pink)] hover:text-[var(--pink-light)] mb-8 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--pink)] rounded px-1"
         >
           <ArrowLeft className="w-4 h-4" aria-hidden="true" />
-          <span>Back to Lowkey</span>
+          <span>Back to Lowkey Social</span>
         </Link>
 
         <div className="mb-12">

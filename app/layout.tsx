@@ -3,12 +3,12 @@ import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 
 export const metadata: Metadata = {
-  title: "Lowkey · College-exclusive dating for Indian students",
+  title: "Lowkey Social · College-exclusive dating for Indian students",
   description:
     "The dating app where everyone is from your campus. Verified college-email-only signup for Indian students. Private, safe, and campus-exclusive.",
   metadataBase: new URL("https://lowkeysocial.in"),
   openGraph: {
-    title: "Lowkey · College-exclusive dating for Indian students",
+    title: "Lowkey Social · College-exclusive dating for Indian students",
     description:
       "The dating app where everyone is from your campus. Verified. Real. Yours.",
     url: "https://lowkeysocial.in",

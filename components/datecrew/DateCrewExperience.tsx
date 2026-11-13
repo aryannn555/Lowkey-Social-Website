@@ -769,21 +769,21 @@ export function DateCrewExperience() {
     // Hide bottom bar when entering closing
     ScrollTrigger.create({
       trigger: "#closing",
-      start: "top 70%",
+      start: "top 95%",
       onEnter: () => bar?.classList.add("gone"),
       onLeaveBack: () => bar?.classList.remove("gone"),
     });
 
-    // Animate closing entrance
-    gsap.from([".avs", "#closeH", ".close-sub", ".close-act"], {
-      y: 24,
+    // Animate closing entrance smoothly without blank delay
+    gsap.from([".avs", "#closeH", ".close-sub", ".close-act", "#closeWaitlist"], {
+      y: 20,
       opacity: 0,
-      duration: 1,
-      ease: "power3.out",
-      stagger: 0.1,
+      duration: 0.8,
+      ease: "power2.out",
+      stagger: 0.08,
       scrollTrigger: {
         trigger: "#closing",
-        start: "top 72%",
+        start: "top 95%",
         toggleActions: "play none none reverse",
       },
     });
@@ -831,8 +831,8 @@ export function DateCrewExperience() {
           <i />
           <i />
         </div>
-        <Link href="/" className="brand" aria-label="Lowkey - Home">
-          Lowkey
+        <Link href="/" className="brand" aria-label="Lowkey Social - Home">
+          Lowkey Social
         </Link>
         <span className="priv">
           <Lock className="lucide" aria-hidden="true" />
@@ -846,7 +846,7 @@ export function DateCrewExperience() {
           {/* Spatial watermark */}
           <div className="backname" aria-hidden="true">
             <span className="sharp" id="bn">
-              Lowkey
+              Lowkey Social
             </span>
           </div>
           {/* Progressive blur mask for spatial name */}
@@ -903,7 +903,7 @@ export function DateCrewExperience() {
             clip: "rect(0 0 0 0)",
           }}
         >
-          Meet Lowkey: College-exclusive dating for Indian students
+          Meet Lowkey Social: College-exclusive dating for Indian students
         </h1>
 
         <p className="why" id="why">
@@ -923,7 +923,7 @@ export function DateCrewExperience() {
 
         {/* Editorial Description with Highlights */}
         <p className="desc" id="desc">
-          Lowkey is the campus-exclusive dating app for verified students.
+          Lowkey Social is the campus-exclusive dating app for verified students.
           Sign up with your <span className="mk">college email</span> and nobody
           else gets in. Discover <span className="mk">5 curated daily picks</span>,
           secretly add crushes to your <span className="mk">private vault</span>,
@@ -939,7 +939,7 @@ export function DateCrewExperience() {
             onClick={handleDownload}
             data-interest
           >
-            Download for Android
+            Download Lowkey Social
           </button>
         </div>
       </section>
@@ -1036,6 +1036,59 @@ export function DateCrewExperience() {
                 Sign up with your college email and nobody else gets in. Every
                 college is its own private world.
               </p>
+            </div>
+          </article>
+
+          {/* Chapter 2: Campus Network Route Map Card */}
+          <article className="card c-mist">
+            <div className="in">
+              <h3 className="disp">Indore to campuses across India</h3>
+              <p>
+                Started at Acropolis Institute (AITR), Indore. Expanding across verified student campuses nationwide.
+              </p>
+              <svg
+                className="route"
+                viewBox="0 0 320 132"
+                role="img"
+                aria-label="Acropolis Institute Indore connecting to campuses across India: 100% verified student network"
+              >
+                <path
+                  d="M44 84 Q160 4 276 84"
+                  fill="none"
+                  stroke="#386058"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                />
+                <circle cx="44" cy="84" r="7" fill="#FBF7F0" stroke="#1B1B1B" strokeWidth="2" />
+                <circle cx="276" cy="84" r="7" fill="#AC7121" />
+                <g transform="translate(160 44)">
+                  <circle r="15" fill="#FBF7F0" />
+                  <path
+                    transform="translate(-9 -9) scale(.75)"
+                    d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"
+                    fill="none"
+                    stroke="#1B1B1B"
+                    strokeWidth="1.75"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </g>
+                <text className="b" x="44" y="112" textAnchor="middle">
+                  AITR Indore
+                </text>
+                <text x="44" y="128" textAnchor="middle">
+                  Birthplace
+                </text>
+                <text className="b" x="276" y="112" textAnchor="middle">
+                  All India
+                </text>
+                <text x="276" y="128" textAnchor="middle">
+                  Campuses
+                </text>
+                <text x="160" y="84" textAnchor="middle">
+                  College email only
+                </text>
+              </svg>
             </div>
           </article>
 
@@ -1206,11 +1259,11 @@ export function DateCrewExperience() {
           <img src={fanPhotos[2].src} alt="" loading="lazy" />
         </div>
         <h2 className="disp" id="closeH">
-          Think you two could click?
+          Ready to meet someone from your campus?
         </h2>
         <p className="close-sub">
-          Tell your campus deck you&apos;re interested. Sign up with your college
-          email and start connecting with verified students today.
+          Join verified students on Lowkey Social. Sign up with your college
+          email to match, chat, and connect in a private campus enclave.
         </p>
         <div className="close-act">
           <button
@@ -1219,25 +1272,25 @@ export function DateCrewExperience() {
             onClick={handleDownload}
             data-interest
           >
-            Download Lowkey for Android
+            Download Lowkey Social for Android
           </button>
           <p className="close-note">
             <ShieldCheck className="lucide" aria-hidden="true" />
-            <span>Free · ~45 MB · Android 8.0+ · Verified campus students only.</span>
+            <span>Free · ~45 MB · Android 8.0+ · College email verified.</span>
           </p>
         </div>
-      </section>
 
-      {/* WAITLIST SECTION */}
-      <section className="py-12 px-4 max-w-xl mx-auto">
-        <WaitlistForm />
+        {/* Integrated Campus Waitlist Card */}
+        <div id="closeWaitlist" className="w-full max-w-lg mt-6">
+          <WaitlistForm />
+        </div>
       </section>
 
       {/* 5. FOOTER */}
       <footer className="foot" role="contentinfo">
         <div className="foot-top">
           <Link href="/" className="foot-mark">
-            lowkey
+            Lowkey Social
           </Link>
           <p>Campus connections for verified Indian college students.</p>
           <a className="foot-apply" href="#waitlist">
@@ -1282,14 +1335,14 @@ export function DateCrewExperience() {
           <button
             onClick={handleShare}
             type="button"
-            aria-label="Share Lowkey website"
+            aria-label="Share Lowkey Social website"
           >
             <Share2 className="lucide" />
           </button>
         </div>
 
         <p className="foot-base">
-          © 2026 Lowkey. Built with ❤️ for Indian college students. Acropolis
+          © 2026 Lowkey Social. Built with ❤️ for Indian college students. Acropolis
           Institute of Technology and Research, Indore.
         </p>
       </footer>
@@ -1363,7 +1416,7 @@ export function DateCrewExperience() {
             id="save"
             type="button"
             onClick={handleSave}
-            aria-label="Save profile to shortlist"
+            aria-label="Save Lowkey Social to shortlist"
             aria-pressed={saved}
           >
             <Heart className="lucide" />
@@ -1375,7 +1428,7 @@ export function DateCrewExperience() {
             onClick={handleDownload}
             data-interest
           >
-            Download APK
+            Download Lowkey Social
           </button>
 
           <button
@@ -1383,7 +1436,7 @@ export function DateCrewExperience() {
             id="share"
             type="button"
             onClick={handleShare}
-            aria-label="Copy link to share"
+            aria-label="Share Lowkey Social website"
           >
             <Share2 className="lucide" />
           </button>
