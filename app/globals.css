@@ -7,9 +7,9 @@
   --ink: #1B1B1B;
   --ink-2: #4A3E42;
   --ink-3: #7A696F;
-  --forest: #253F3A;
-  --forest-2: #1C302C;
-  --sage: #386058;
+  --forest: #E5C365;
+  --forest-2: #D4AF48;
+  --sage: #B8933A;
   --gold: #C25B7C;
   --rose: #D94876;
   --mark: rgba(236, 72, 153, 0.28);
@@ -330,21 +330,21 @@ img {
   padding: 0 32px;
   border-radius: 99px;
   font: 700 16px/1 var(--f-body);
-  color: #FFFFFF;
-  background: #1B3530;
+  color: #1B1B1B;
+  background: var(--forest);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 12px;
-  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 4px 18px rgba(184, 147, 58, 0.28), 0 2px 6px rgba(0, 0, 0, 0.08);
   transition: background-color 0.25s, transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
   text-decoration: none;
 }
 
 .cta:hover {
-  background: #132723;
+  background: var(--forest-2);
   transform: translateY(-2px);
-  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.24);
+  box-shadow: 0 6px 24px rgba(184, 147, 58, 0.38), 0 3px 8px rgba(0, 0, 0, 0.12);
 }
 
 .cta:active {
@@ -352,7 +352,8 @@ img {
 }
 
 .cta.sent {
-  background: var(--sage);
+  background: var(--forest-2);
+  color: #1B1B1B;
 }
 
 .cta-badge {
@@ -361,12 +362,12 @@ img {
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.04em;
-  background: rgba(255, 255, 255, 0.18);
-  color: #FFFFFF;
+  background: rgba(27, 27, 27, 0.08);
+  color: #1B1B1B;
   padding: 4px 10px;
   border-radius: 99px;
   margin-left: 2px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(27, 27, 27, 0.16);
 }
 
 .desc {
@@ -799,9 +800,9 @@ img {
   font-weight: 700;
   border-radius: 99px;
   border: 1.5px solid #1B1B1B;
-  background: #1B3530;
-  color: #FFFFFF;
-  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.18);
+  background: var(--forest);
+  color: #1B1B1B;
+  box-shadow: 0 4px 18px rgba(184, 147, 58, 0.28), 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
 .close-act {
@@ -829,7 +830,7 @@ img {
 /* 5. FOOTER */
 .foot {
   background: var(--forest);
-  color: #FFF9F1;
+  color: #1B1B1B;
   border-radius: 32px;
   border: 1.5px solid #1B1B1B;
   margin: 0 16px calc(env(safe-area-inset-bottom, 0px) + 16px);
@@ -847,7 +848,7 @@ img {
 }
 
 .foot-mark {
-  color: #FFF9F1;
+  color: #1B1B1B;
   text-decoration: none;
   font: 600 clamp(40px, 11vw, 72px) / 0.95 var(--f-display);
   letter-spacing: -0.035em;
@@ -855,7 +856,7 @@ img {
 
 .foot-top p {
   margin: 0;
-  color: rgba(255, 249, 241, 0.72);
+  color: rgba(27, 27, 27, 0.78);
   font-size: 15.5px;
 }
 
@@ -866,15 +867,16 @@ img {
   gap: 6px;
   padding: 12px 18px;
   border-radius: 99px;
-  background: rgba(255, 249, 241, 0.1);
-  color: #FFF9F1;
+  background: rgba(27, 27, 27, 0.08);
+  color: #1B1B1B;
+  border: 1px solid rgba(27, 27, 27, 0.15);
   text-decoration: none;
   font: 600 14.5px var(--f-body);
   transition: background-color 0.3s;
 }
 
 .foot-apply:hover {
-  background: rgba(255, 249, 241, 0.18);
+  background: rgba(27, 27, 27, 0.15);
 }
 
 .foot-apply .lucide {
@@ -900,11 +902,11 @@ img {
 .foot-cols h3 {
   margin: 0 0 4px;
   font: 600 13px var(--f-body);
-  color: rgba(255, 249, 241, 0.56);
+  color: rgba(27, 27, 27, 0.6);
 }
 
 .foot-cols a {
-  color: #FFF9F1;
+  color: #1B1B1B;
   text-decoration: none;
   font-size: 14.5px;
 }
@@ -926,8 +928,9 @@ img {
   border-radius: 50%;
   display: grid;
   place-items: center;
-  background: rgba(255, 249, 241, 0.1);
-  color: #FFF9F1;
+  background: rgba(27, 27, 27, 0.08);
+  color: #1B1B1B;
+  border: 1px solid rgba(27, 27, 27, 0.12);
   transition: background-color 0.3s;
   border: 0;
   cursor: pointer;
@@ -935,7 +938,7 @@ img {
 
 .foot-social a:hover,
 .foot-social button:hover {
-  background: rgba(255, 249, 241, 0.2);
+  background: rgba(27, 27, 27, 0.16);
 }
 
 .foot-social .lucide {
