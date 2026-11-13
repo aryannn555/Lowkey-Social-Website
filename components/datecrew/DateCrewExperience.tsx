@@ -848,6 +848,7 @@ export function DateCrewExperience() {
             onClick={handleDownload}
             data-interest
             aria-label="Download Lowkey Social APK"
+            style={{ backgroundColor: "#FFF6EB", color: "#1B1B1B" }}
           >
             <Download className="lucide" aria-hidden="true" />
             <span>Download Lowkey Social</span>
@@ -1193,6 +1194,7 @@ export function DateCrewExperience() {
             type="button"
             onClick={handleDownload}
             data-interest
+            style={{ backgroundColor: "#FFF6EB", color: "#1B1B1B" }}
           >
             Download Lowkey Social for Android
           </button>
@@ -1209,7 +1211,7 @@ export function DateCrewExperience() {
       </section>
 
       {/* 5. FOOTER */}
-      <footer className="foot" role="contentinfo">
+      <footer className="foot" role="contentinfo" style={{ backgroundColor: "#FFF6EB", color: "#1B1B1B" }}>
         <div className="foot-top">
           <Link href="/" className="foot-mark">
             Lowkey Social

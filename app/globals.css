@@ -331,7 +331,8 @@ img {
   border-radius: 99px;
   font: 700 16px/1 var(--f-body);
   color: #1B1B1B;
-  background: var(--forest);
+  background-color: #FFF6EB;
+  background: #FFF6EB;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -342,7 +343,8 @@ img {
 }
 
 .cta:hover {
-  background: var(--forest-2);
+  background-color: #F2E7D8;
+  background: #F2E7D8;
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12), 0 2px 5px rgba(0, 0, 0, 0.06);
 }
@@ -352,7 +354,7 @@ img {
 }
 
 .cta.sent {
-  background: var(--forest-2);
+  background: #F2E7D8;
   color: #1B1B1B;
 }
 
@@ -800,7 +802,8 @@ img {
   font-weight: 700;
   border-radius: 99px;
   border: 1.5px solid #1B1B1B;
-  background: var(--forest);
+  background-color: #FFF6EB;
+  background: #FFF6EB;
   color: #1B1B1B;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.05);
 }
@@ -829,7 +832,8 @@ img {
 
 /* 5. FOOTER */
 .foot {
-  background: var(--forest);
+  background-color: #FFF6EB;
+  background: #FFF6EB;
   color: #1B1B1B;
   border-radius: 32px;
   border: 1.5px solid #1B1B1B;

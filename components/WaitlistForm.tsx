@@ -92,6 +92,7 @@ export default function WaitlistForm() {
               type="submit"
               disabled={status === "loading"}
               className="cta !h-12 !px-6 text-sm shrink-0 disabled:opacity-50"
+              style={{ backgroundColor: "#FFF6EB", color: "#1B1B1B" }}
             >
               {status === "loading" ? (
                 <Loader2 className="w-4 h-4 animate-spin" aria-hidden="true" />
