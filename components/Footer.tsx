@@ -17,7 +17,7 @@ export default function Footer() {
               aria-label="Lowkey Social - Back to top"
               className="inline-flex items-center gap-0.5 text-2xl font-bold font-clash tracking-[-1px] text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--pink)] rounded"
             >
-              <span>lowkey</span>
+              <span>lowkey social</span>
               <span className="inline-block w-2 h-2 rounded-full bg-[var(--pink)] ml-0.5 shadow-[0_0_8px_#E8589A]" aria-hidden="true" />
             </Link>
             <p className="text-sm text-white/75 tracking-[-0.2px]">

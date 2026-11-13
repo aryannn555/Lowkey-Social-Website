@@ -64,7 +64,7 @@ export default function WaitlistForm() {
             <span className="text-[var(--forest)] font-bold">
               @{savedDomain}
             </span>{" "}
-            goes live on Lowkey!
+            goes live on Lowkey Social!
           </p>
         </div>
       ) : (

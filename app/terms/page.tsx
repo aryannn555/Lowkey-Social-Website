@@ -5,7 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata = {
-  title: "Terms of Service | Lowkey",
+  title: "Terms of Service | Lowkey Social",
   description: "Terms and Community Guidelines for using Lowkey Social.",
 };
 
@@ -20,7 +20,7 @@ export default function TermsPage() {
           className="inline-flex items-center gap-2 text-xs font-mono-code text-[var(--pink)] hover:text-[var(--pink-light)] mb-8 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--pink)] rounded px-1"
         >
           <ArrowLeft className="w-4 h-4" aria-hidden="true" />
-          <span>Back to Lowkey</span>
+          <span>Back to Lowkey Social</span>
         </Link>
 
         <div className="mb-12">
