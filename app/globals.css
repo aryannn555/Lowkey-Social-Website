@@ -1,26 +1,26 @@
 @import "tailwindcss";
 
 :root {
-  --ivory: #FDF0F4;
+  --ivory: #FBD2E0;
   --paper: #FFFFFF;
-  --sand: #F3D5DE;
+  --sand: #F3A8C2;
   --ink: #1B1B1B;
-  --ink-2: #55504A;
-  --ink-3: #8B837A;
+  --ink-2: #4A3E42;
+  --ink-3: #7A696F;
   --forest: #253F3A;
   --forest-2: #1C302C;
   --sage: #386058;
   --gold: #C25B7C;
   --rose: #D94876;
-  --mark: rgba(232, 88, 154, 0.22);
-  --bg-mist: #D6E6DD;
-  --bg-cream: #F8DCE5;
-  --bg-blush: #F5D3DE;
-  --bg-sky: #D3E0EE;
-  --bg-moss: #DFE5C6;
-  --bg-honey: #F5D9BF;
-  --bg-card-7: #E8DDF0;
-  --bg-card-8: #F5DBE4;
+  --mark: rgba(236, 72, 153, 0.28);
+  --bg-mist: #FCE4EC;
+  --bg-cream: #FFD8E8;
+  --bg-blush: #FCE0EC;
+  --bg-sky: #E3EDF8;
+  --bg-moss: #E6EDD6;
+  --bg-honey: #FFE4D6;
+  --bg-card-7: #EDE0F6;
+  --bg-card-8: #FFD6E4;
 
   --f-display: "Inter Tight", "Clash Display", system-ui, -apple-system, sans-serif;
   --f-body: "DM Sans", "Satoshi", system-ui, -apple-system, sans-serif;
@@ -113,10 +113,10 @@ img {
   pointer-events: none;
   background: linear-gradient(
     to bottom,
-    rgba(253, 240, 244, 0.92) 0%,
-    rgba(253, 240, 244, 0.75) 50%,
-    rgba(253, 240, 244, 0.3) 78%,
-    rgba(253, 240, 244, 0) 100%
+    rgba(251, 210, 224, 0.94) 0%,
+    rgba(251, 210, 224, 0.8) 50%,
+    rgba(251, 210, 224, 0.35) 78%,
+    rgba(251, 210, 224, 0) 100%
   );
 }
 
@@ -237,10 +237,10 @@ img {
   pointer-events: none;
   background: linear-gradient(
     to bottom,
-    rgba(253, 240, 244, 0) 0%,
-    rgba(253, 240, 244, 0.25) 45%,
-    rgba(253, 240, 244, 0.25) 60%,
-    rgba(253, 240, 244, 0) 100%
+    rgba(251, 210, 224, 0) 0%,
+    rgba(251, 210, 224, 0.35) 45%,
+    rgba(251, 210, 224, 0.35) 60%,
+    rgba(251, 210, 224, 0) 100%
   );
 }
 
@@ -460,7 +460,7 @@ img {
 }
 
 .quote .w {
-  color: #E5C3CC;
+  color: #E29BB5;
   transition: color 0.25s;
 }
 
@@ -1004,9 +1004,9 @@ img {
   padding: 7px;
   border-radius: 22px;
   width: min(100%, 440px);
-  background: rgba(253, 240, 244, 0.96);
-  border: 1px solid rgba(243, 213, 222, 0.85);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(243, 168, 194, 0.85);
+  box-shadow: 0 10px 30px rgba(236, 72, 153, 0.12);
 }
 
 .btn {
