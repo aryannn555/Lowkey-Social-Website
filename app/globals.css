@@ -299,6 +299,7 @@ img {
   background: var(--sand);
   cursor: pointer;
   will-change: transform;
+  border: 1.5px solid #1B1B1B;
   outline: 4px solid var(--ivory);
 }
 
@@ -368,6 +369,7 @@ img {
   background: var(--paper);
   font: 500 14.5px/1 var(--f-body);
   color: var(--ink);
+  border: 1px solid #1B1B1B;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
@@ -484,6 +486,7 @@ img {
   overflow: hidden;
   background: var(--sand);
   will-change: transform;
+  border: 1.5px solid #1B1B1B;
 }
 
 .fl img {
@@ -561,6 +564,7 @@ img {
   gap: 6px;
   text-align: center;
   will-change: transform, filter, opacity;
+  border: 1.5px solid #1B1B1B;
 }
 
 .fc .lucide {
@@ -646,6 +650,7 @@ img {
   transform-origin: 50% 0;
   will-change: transform, opacity;
   contain: layout paint;
+  border: 1.5px solid #1B1B1B;
 }
 
 .card .in {
@@ -688,8 +693,9 @@ img {
   gap: 8px;
   padding: 8px 13px 8px 10px;
   border-radius: 99px;
-  background: rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.85);
   font: 500 14px/1 var(--f-body);
+  border: 1px solid #1B1B1B;
 }
 
 .card .chips .lucide {
@@ -855,6 +861,7 @@ img {
   background: var(--forest);
   color: #FFF9F1;
   border-radius: 32px;
+  border: 1.5px solid #1B1B1B;
   margin: 0 16px calc(env(safe-area-inset-bottom, 0px) + 16px);
   padding: 56px 16px 36px;
   display: grid;

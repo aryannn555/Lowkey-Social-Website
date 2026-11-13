@@ -38,7 +38,7 @@ export default function WaitlistForm() {
   };
 
   return (
-    <div id="waitlist" className="w-full max-w-lg mx-auto p-6 sm:p-8 rounded-3xl bg-[var(--paper)] border border-[var(--sand)] shadow-sm">
+    <div id="waitlist" className="w-full max-w-lg mx-auto p-6 sm:p-8 rounded-3xl bg-[var(--paper)] border-[1.5px] border-[#1B1B1B] shadow-sm">
       <div className="text-center mb-6">
         <h3 className="disp text-2xl text-[var(--ink)] mb-1.5">
           Is your college live yet?
