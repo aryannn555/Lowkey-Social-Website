@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { Download, Menu, X, ArrowRight, GraduationCap } from "lucide-react";
+import { Download, Menu, X, ArrowRight, Lock, GraduationCap } from "lucide-react";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 
 export default function Navbar() {
@@ -14,13 +14,12 @@ export default function Navbar() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 40);
 
-      // Detect active section
-      const sections = ["story", "founder", "download"];
+      const sections = ["words-quote", "facts", "story-carousel", "founder", "download"];
       for (const sectionId of sections) {
         const el = document.getElementById(sectionId);
         if (el) {
           const rect = el.getBoundingClientRect();
-          if (rect.top <= 200 && rect.bottom >= 200) {
+          if (rect.top <= 260 && rect.bottom >= 260) {
             setActiveSection(sectionId);
             break;
           }
@@ -47,13 +46,13 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[#080808]/85 backdrop-blur-xl border-b border-white/[0.08] py-3.5 shadow-2xl shadow-black/80"
+          ? "bg-[#080808]/85 backdrop-blur-2xl border-b border-white/[0.08] py-3.5 shadow-2xl shadow-black/80"
           : "bg-transparent border-b border-transparent py-5"
       }`}
       style={{ paddingTop: "max(14px, env(safe-area-inset-top))" }}
     >
       <div className="max-w-[1200px] mx-auto px-6 sm:px-8 flex items-center justify-between">
-        {/* Brand Logo */}
+        {/* Brand Logo (Clash Display) */}
         <Link
           href="/"
           aria-label="Lowkey Social - Home"
@@ -66,17 +65,45 @@ export default function Navbar() {
           />
         </Link>
 
-        {/* Desktop Navigation Links with active indicators */}
+        {/* DateCrew Style Privacy Badge (Center) */}
+        <div className="hidden lg:flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-xs font-mono-code text-white/70 backdrop-blur-md">
+          <Lock className="w-3.5 h-3.5 text-emerald-400" />
+          <span>Shared Privately • Exclusive Campus Deck</span>
+        </div>
+
+        {/* Navigation Links */}
         <nav
           aria-label="Main Navigation"
           className="hidden md:flex items-center gap-1 bg-white/[0.03] border border-white/[0.06] rounded-full p-1.5 backdrop-blur-md"
         >
           <a
-            href="#story"
-            onClick={(e) => scrollToSection(e, "#story")}
-            className={`px-4 py-1.5 rounded-full text-xs font-medium tracking-wide transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--pink)] ${
-              activeSection === "story"
-                ? "bg-white/[0.1] text-white shadow-sm font-semibold"
+            href="#words-quote"
+            onClick={(e) => scrollToSection(e, "#words-quote")}
+            className={`px-3.5 py-1.5 rounded-full text-xs font-medium tracking-wide transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--pink)] ${
+              activeSection === "words-quote"
+                ? "bg-white/[0.1] text-white font-semibold"
+                : "text-white/70 hover:text-white hover:bg-white/[0.05]"
+            }`}
+          >
+            Voice
+          </a>
+          <a
+            href="#facts"
+            onClick={(e) => scrollToSection(e, "#facts")}
+            className={`px-3.5 py-1.5 rounded-full text-xs font-medium tracking-wide transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--pink)] ${
+              activeSection === "facts"
+                ? "bg-white/[0.1] text-white font-semibold"
+                : "text-white/70 hover:text-white hover:bg-white/[0.05]"
+            }`}
+          >
+            Essentials
+          </a>
+          <a
+            href="#story-carousel"
+            onClick={(e) => scrollToSection(e, "#story-carousel")}
+            className={`px-3.5 py-1.5 rounded-full text-xs font-medium tracking-wide transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--pink)] ${
+              activeSection === "story-carousel"
+                ? "bg-white/[0.1] text-white font-semibold"
                 : "text-white/70 hover:text-white hover:bg-white/[0.05]"
             }`}
           >
@@ -85,34 +112,18 @@ export default function Navbar() {
           <a
             href="#founder"
             onClick={(e) => scrollToSection(e, "#founder")}
-            className={`px-4 py-1.5 rounded-full text-xs font-medium tracking-wide transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--pink)] ${
+            className={`px-3.5 py-1.5 rounded-full text-xs font-medium tracking-wide transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--pink)] ${
               activeSection === "founder"
-                ? "bg-white/[0.1] text-white shadow-sm font-semibold"
+                ? "bg-white/[0.1] text-white font-semibold"
                 : "text-white/70 hover:text-white hover:bg-white/[0.05]"
             }`}
           >
             Founder
           </a>
-          <a
-            href="#download"
-            onClick={(e) => scrollToSection(e, "#download")}
-            className={`px-4 py-1.5 rounded-full text-xs font-medium tracking-wide transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--pink)] ${
-              activeSection === "download"
-                ? "bg-white/[0.1] text-white shadow-sm font-semibold"
-                : "text-white/70 hover:text-white hover:bg-white/[0.05]"
-            }`}
-          >
-            Download
-          </a>
         </nav>
 
         {/* Right Action */}
         <div className="hidden md:flex items-center gap-3">
-          <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-950/40 border border-emerald-500/30 text-[11px] font-mono-code text-emerald-400">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            <span>Campus Live</span>
-          </div>
-
           <MagneticButton strength={0.25}>
             <a
               href="#download"
@@ -125,7 +136,7 @@ export default function Navbar() {
           </MagneticButton>
         </div>
 
-        {/* Mobile Hamburger Button with proper 44x44px target and aria attributes */}
+        {/* Mobile Hamburger Button */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
@@ -154,11 +165,27 @@ export default function Navbar() {
 
           <nav className="flex flex-col gap-2 text-base font-medium">
             <a
-              href="#story"
-              onClick={(e) => scrollToSection(e, "#story")}
+              href="#words-quote"
+              onClick={(e) => scrollToSection(e, "#words-quote")}
               className="flex items-center justify-between p-3 rounded-xl text-white/80 hover:text-white hover:bg-white/[0.04] transition-colors"
             >
-              <span className="font-clash font-medium text-lg">The Story</span>
+              <span className="font-clash font-medium text-lg">Student Voice</span>
+              <ArrowRight className="w-4 h-4 text-white/40" aria-hidden="true" />
+            </a>
+            <a
+              href="#facts"
+              onClick={(e) => scrollToSection(e, "#facts")}
+              className="flex items-center justify-between p-3 rounded-xl text-white/80 hover:text-white hover:bg-white/[0.04] transition-colors"
+            >
+              <span className="font-clash font-medium text-lg">Campus Essentials</span>
+              <ArrowRight className="w-4 h-4 text-white/40" aria-hidden="true" />
+            </a>
+            <a
+              href="#story-carousel"
+              onClick={(e) => scrollToSection(e, "#story-carousel")}
+              className="flex items-center justify-between p-3 rounded-xl text-white/80 hover:text-white hover:bg-white/[0.04] transition-colors"
+            >
+              <span className="font-clash font-medium text-lg">The 3D Story</span>
               <ArrowRight className="w-4 h-4 text-white/40" aria-hidden="true" />
             </a>
             <a
@@ -174,7 +201,7 @@ export default function Navbar() {
               onClick={(e) => scrollToSection(e, "#download")}
               className="flex items-center justify-between p-3 rounded-xl text-white/80 hover:text-white hover:bg-white/[0.04] transition-colors"
             >
-              <span className="font-clash font-medium text-lg">Get Android APK</span>
+              <span className="font-clash font-medium text-lg">Download App</span>
               <ArrowRight className="w-4 h-4 text-white/40" aria-hidden="true" />
             </a>
             <div className="pt-3">
