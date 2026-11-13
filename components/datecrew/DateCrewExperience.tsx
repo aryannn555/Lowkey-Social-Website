@@ -20,6 +20,7 @@ import {
   Coffee,
   ArrowUpRight,
   X,
+  Download,
 } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -58,15 +59,6 @@ const fanPhotos = [
     name: "Aarav",
     branch: "IT '25",
   },
-];
-
-const pillsList = [
-  { icon: <GraduationCap className="lucide" />, text: "Acropolis Institute '26" },
-  { icon: <MapPin className="lucide" />, text: "Indore Campus" },
-  { icon: <Code2 className="lucide" />, text: "B.Tech CS" },
-  { icon: <Flame className="lucide" />, text: "8 free daily swipes" },
-  { icon: <Heart className="lucide" />, text: "Secret crush list" },
-  { icon: <ShieldCheck className="lucide" />, text: "College email only" },
 ];
 
 const quoteWords = [
@@ -407,7 +399,7 @@ export function DateCrewExperience() {
 
     const intro = gsap.timeline({ defaults: { ease: "power3.out" } });
     intro
-      .to("#fan", { autoAlpha: 1, y: 0, duration: 0.9, ease: "power2.out" }, 0.15)
+      .to("#fan", { autoAlpha: 1, y: 0, duration: 0.8, ease: "power2.out" }, 0.1)
       .add(() => {
         const sl = fanSlots();
         photos.forEach((el, i) => {
@@ -416,19 +408,15 @@ export function DateCrewExperience() {
             y: sl[i].y,
             rotate: sl[i].r,
             scale: 1,
-            duration: 1.6,
+            duration: 1.2,
             ease: "power3.inOut",
             delay: Math.abs(i - 1.5) * 0.05,
           });
         });
-      }, 0.7)
-      .from("#why", { y: 10, autoAlpha: 0, duration: 0.9 }, 1.7)
-      .from(".pill", { y: 10, autoAlpha: 0, duration: 0.8, stagger: 0.05 }, 1.85)
-      .from("#desc", { y: 12, autoAlpha: 0, duration: 0.9 }, 2.1)
-      .from("#heroCta", { y: 10, autoAlpha: 0, duration: 0.8 }, 2.25)
+      }, 0.4)
       .add(() => {
         spread = true;
-      }, 2.4);
+      }, 1.0);
 
     // Speed up intro on any user wheel/touch interaction so scrolling is never blocked
     const hurry = () => {
@@ -502,12 +490,6 @@ export function DateCrewExperience() {
     if (finePointer && fanEl) {
       fanEl.addEventListener("pointermove", onPointerMove);
       fanEl.addEventListener("pointerleave", hoverOut);
-    }
-
-    // Centre Pills scroll on initial mount
-    const pillsEl = document.getElementById("pills");
-    if (pillsEl) {
-      pillsEl.scrollLeft = (pillsEl.scrollWidth - pillsEl.clientWidth) / 2;
     }
 
     // Highlight text in #desc
@@ -872,19 +854,19 @@ export function DateCrewExperience() {
           Meet Lowkey Social: College-exclusive dating for Indian students
         </h1>
 
-        <p className="why" id="why">
-          <Sparkles className="lucide" aria-hidden="true" />
-          Your campus network thinks you two should connect.
-        </p>
-
-        {/* Scrollable Badges */}
-        <div className="pills" id="pills">
-          {pillsList.map((pill, i) => (
-            <span key={i} className="pill">
-              {pill.icon}
-              <span>{pill.text}</span>
-            </span>
-          ))}
+        {/* Hero CTAs - prominently placed right below the photo fan */}
+        <div className="ctas" id="heroCta">
+          <button
+            className="cta"
+            type="button"
+            onClick={handleDownload}
+            data-interest
+            aria-label="Download Lowkey Social APK"
+          >
+            <Download className="lucide" aria-hidden="true" />
+            <span>Download Lowkey Social</span>
+            <span className="cta-badge">APK • Free</span>
+          </button>
         </div>
 
         {/* Editorial Description with Highlights */}
@@ -896,18 +878,6 @@ export function DateCrewExperience() {
           and unlock real-time chats <span className="mk">only upon mutual match</span> with
           zero strangers or spam.
         </p>
-
-        {/* Hero CTAs */}
-        <div className="ctas" id="heroCta">
-          <button
-            className="cta"
-            type="button"
-            onClick={handleDownload}
-            data-interest
-          >
-            Download Lowkey Social
-          </button>
-        </div>
       </section>
 
       {/* 2. WORDS: PINNED WORD-BY-WORD REVEAL WITH FLOATING PORTRAITS */}

@@ -313,70 +313,60 @@ img {
   -webkit-user-drag: none;
 }
 
-.why {
-  margin: 0;
-  max-width: 36ch;
-  font: 500 15.5px/1.45 var(--f-body);
-  color: var(--forest);
-  text-wrap: balance;
-}
-
-.why .lucide {
-  color: var(--gold);
-  vertical-align: -6px;
-  margin-right: 6px;
-  width: 18px;
-  height: 18px;
-}
-
-.pills {
+.hero .ctas {
   display: flex;
-  flex-wrap: nowrap;
-  gap: 8px;
-  width: calc(100% + 36px);
-  max-width: 1000px;
-  min-width: 0;
-  margin-inline: -18px;
-  padding: 2px 18px;
-  overflow-x: auto;
-  scrollbar-width: none;
-  justify-self: center;
-  justify-content: flex-start;
-  -webkit-mask: linear-gradient(90deg, transparent, #000 18px, #000 calc(100% - 18px), transparent);
-  mask: linear-gradient(90deg, transparent, #000 18px, #000 calc(100% - 18px), transparent);
+  gap: 12px;
+  justify-content: center;
+  position: relative;
+  z-index: 10;
+  margin-top: 14px;
+  margin-bottom: 4px;
 }
 
-.pills::-webkit-scrollbar {
-  display: none;
-}
-
-.pill:first-child {
-  margin-left: auto;
-}
-
-.pill:last-child {
-  margin-right: auto;
-}
-
-.pill {
-  flex: none;
-  white-space: nowrap;
+.cta {
+  border: 1.5px solid #1B1B1B;
+  cursor: pointer;
+  min-height: 56px;
+  padding: 0 32px;
+  border-radius: 99px;
+  font: 700 16px/1 var(--f-body);
+  color: #FFFFFF;
+  background: #1B3530;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 14px 8px 10px;
-  border-radius: 99px;
-  background: var(--paper);
-  font: 500 14.5px/1 var(--f-body);
-  color: var(--ink);
-  border: 1px solid #1B1B1B;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  justify-content: center;
+  gap: 12px;
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.18);
+  transition: background-color 0.25s, transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+  text-decoration: none;
 }
 
-.pill .lucide {
-  color: var(--sage);
-  width: 16px;
-  height: 16px;
+.cta:hover {
+  background: #132723;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.24);
+}
+
+.cta:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.cta.sent {
+  background: var(--sage);
+}
+
+.cta-badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  background: rgba(255, 255, 255, 0.18);
+  color: #FFFFFF;
+  padding: 4px 10px;
+  border-radius: 99px;
+  margin-left: 2px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .desc {
@@ -384,7 +374,7 @@ img {
   max-width: 720px;
   font-size: clamp(17px, 4.6vw, 20px);
   line-height: 1.6;
-  color: var(--ink-2);
+  color: #2D2327;
   text-wrap: pretty;
 }
 
@@ -396,40 +386,6 @@ img {
   border-radius: 5px;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
-}
-
-.hero .ctas {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-}
-
-.cta {
-  border: 0;
-  cursor: pointer;
-  height: 54px;
-  padding: 0 26px;
-  border-radius: 16px;
-  font: 600 16px var(--f-body);
-  color: #FFF9F1;
-  background: var(--forest);
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  transition: background-color 0.3s, transform 0.25s var(--ease);
-  text-decoration: none;
-}
-
-.cta:hover {
-  background: var(--forest-2);
-}
-
-.cta:active {
-  transform: scale(0.98);
-}
-
-.cta.sent {
-  background: var(--sage);
 }
 
 /* 2. WORDS (PINNED REVEAL WITH FLOATING PORTRAITS) */
