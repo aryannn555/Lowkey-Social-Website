@@ -30,6 +30,8 @@ export default function SmoothScroll({
       wheelMultiplier: 0.9,
     });
 
+    (window as unknown as { lenis: Lenis }).lenis = lenis;
+
     lenis.on("scroll", ScrollTrigger.update);
 
     const tickerCb = (time: number) => {
