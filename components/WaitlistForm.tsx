@@ -53,7 +53,7 @@ export default function WaitlistForm() {
         <div
           role="status"
           aria-live="polite"
-          className="p-5 rounded-2xl bg-[var(--bg-mist)] border border-[var(--sage)]/40 text-[var(--forest)] text-center animate-in fade-in duration-300"
+          className="p-5 rounded-2xl bg-[var(--bg-mist)] border border-[var(--sage)]/40 text-[var(--ink)] text-center animate-in fade-in duration-300"
         >
           <CheckCircle2 className="w-8 h-8 text-[var(--sage)] mx-auto mb-2" aria-hidden="true" />
           <h4 className="disp text-lg text-[var(--ink)] mb-1">
@@ -61,7 +61,7 @@ export default function WaitlistForm() {
           </h4>
           <p className="text-xs text-[var(--ink-2)]">
             We will notify you the moment{" "}
-            <span className="text-[var(--forest)] font-bold">
+            <span className="text-[var(--sage)] font-bold">
               @{savedDomain}
             </span>{" "}
             goes live on Lowkey Social!
