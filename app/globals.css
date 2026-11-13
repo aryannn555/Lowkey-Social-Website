@@ -185,7 +185,7 @@ img {
 
 /* 1. HERO */
 .hero {
-  --nm: clamp(96px, 26vw, 260px);
+  --nm: clamp(48px, 13.5vw, 150px);
   position: relative;
   overflow: hidden;
   padding: calc(env(safe-area-inset-top, 0px) + 92px) 18px 72px;
