@@ -7,9 +7,9 @@
   --ink: #1B1B1B;
   --ink-2: #4A3E42;
   --ink-3: #7A696F;
-  --forest: #98B4A6;
-  --forest-2: #85A394;
-  --sage: #4C6E5E;
+  --forest: #DFCBB5;
+  --forest-2: #CDB69E;
+  --sage: #826244;
   --gold: #C25B7C;
   --rose: #D94876;
   --mark: rgba(236, 72, 153, 0.28);
@@ -336,7 +336,7 @@ img {
   align-items: center;
   justify-content: center;
   gap: 12px;
-  box-shadow: 0 4px 18px rgba(76, 110, 94, 0.22), 0 2px 6px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 18px rgba(130, 98, 68, 0.20), 0 2px 6px rgba(0, 0, 0, 0.08);
   transition: background-color 0.25s, transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
   text-decoration: none;
 }
@@ -344,7 +344,7 @@ img {
 .cta:hover {
   background: var(--forest-2);
   transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(76, 110, 94, 0.32), 0 3px 8px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 6px 24px rgba(130, 98, 68, 0.30), 0 3px 8px rgba(0, 0, 0, 0.12);
 }
 
 .cta:active {
@@ -802,7 +802,7 @@ img {
   border: 1.5px solid #1B1B1B;
   background: var(--forest);
   color: #1B1B1B;
-  box-shadow: 0 4px 18px rgba(76, 110, 94, 0.22), 0 2px 6px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 18px rgba(130, 98, 68, 0.20), 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
 .close-act {
