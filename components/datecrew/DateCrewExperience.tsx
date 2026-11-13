@@ -21,11 +21,11 @@ import {
   ArrowUpRight,
   X,
 } from "lucide-react";
-import { InstagramIcon } from "@/components/InstagramIcon";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import type Lenis from "lenis";
+import Lenis from "lenis";
 import { triggerConfettiBurst } from "@/components/ui/ConfettiBurst";
+import { InstagramIcon } from "@/components/InstagramIcon";
 import WaitlistForm from "@/components/WaitlistForm";
 import { incrementDownloads } from "@/lib/supabase";
 
@@ -67,6 +67,11 @@ const pillsList = [
   { icon: <Flame className="lucide" />, text: "8 free daily swipes" },
   { icon: <Heart className="lucide" />, text: "Secret crush list" },
   { icon: <ShieldCheck className="lucide" />, text: "College email only" },
+];
+
+const quoteWords = [
+  "During", "the", "week", "I", "thrive", "on", "building", "robots", "in", "the", "lab,",
+  "but", "late", "nights", "are", "for", "canteen", "chai", "and", "real", "campus", "conversations."
 ];
 
 const factsList = [
@@ -120,6 +125,7 @@ export function DateCrewExperience() {
   const [lbOpen, setLbOpen] = useState(false);
   const [lbIndex, setLbIndex] = useState(0);
   const toastTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const lenisRef = useRef<Lenis | null>(null);
 
   const showToast = (msg: string) => {
     setToastMessage(msg);
@@ -161,10 +167,12 @@ export function DateCrewExperience() {
   const openLightbox = (idx: number) => {
     setLbIndex(idx);
     setLbOpen(true);
+    if (lenisRef.current) lenisRef.current.stop();
   };
 
   const closeLightbox = () => {
     setLbOpen(false);
+    if (lenisRef.current) lenisRef.current.start();
   };
 
   useEffect(() => {
@@ -178,7 +186,6 @@ export function DateCrewExperience() {
     const fan = document.getElementById("fan");
     const photos = Array.from(document.querySelectorAll<HTMLElement>(".ph"));
     const bar = document.getElementById("bar");
-    const quoteEl = document.getElementById("quote");
     const descEl = document.getElementById("desc");
     const story = document.getElementById("story");
     const pin = document.getElementById("storyPin");
@@ -190,12 +197,24 @@ export function DateCrewExperience() {
     const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
     const easeOut = (t: number) => 1 - Math.pow(1 - t, 3);
 
-    // 1. Split Quote words into <span class="w">
-    if (quoteEl && !quoteEl.querySelector(".w")) {
-      const words = quoteEl.textContent?.trim().split(/\s+/) || [];
-      quoteEl.innerHTML = words
-        .map((w) => `<span class="w">${w}</span>`)
-        .join(" ");
+    // 1. Initialize Lenis smooth scroll exactly as DateCrew does
+    let lenis: Lenis | null = null;
+    let tickerCb: ((time: number) => void) | null = null;
+
+    if (!reduce) {
+      lenis = new Lenis({
+        lerp: 0.08,
+        smoothWheel: true,
+      });
+      lenisRef.current = lenis;
+
+      lenis.on("scroll", ScrollTrigger.update);
+
+      tickerCb = (time: number) => {
+        lenis?.raf(time * 1000);
+      };
+      gsap.ticker.add(tickerCb);
+      gsap.ticker.lagSmoothing(0);
     }
 
     // 2. Fan Geometry (DateCrew exact formula)
@@ -234,8 +253,8 @@ export function DateCrewExperience() {
     const stacked = (i: number) => ({
       x: 0,
       y: -(3 - i) * 12,
-      r: 0,
-      s: 1 - (3 - i) * 0.05,
+      rotate: 0,
+      scale: 1 - (3 - i) * 0.05,
     });
 
     // 3. Carousel Geometry (DateCrew exact formula)
@@ -424,6 +443,17 @@ export function DateCrewExperience() {
       .add(() => {
         spread = true;
       }, 2.4);
+
+    // Speed up intro on any user wheel/touch interaction so scrolling is never blocked
+    const hurry = () => {
+      if (intro.isActive()) intro.timeScale(3);
+      ["wheel", "touchstart", "keydown", "pointerdown"].forEach((t) =>
+        removeEventListener(t, hurry)
+      );
+    };
+    ["wheel", "touchstart", "keydown", "pointerdown"].forEach((t) =>
+      addEventListener(t, hurry, { passive: true })
+    );
 
     let hovered = -1;
     const hoverIn = (idx: number) => {
@@ -619,7 +649,6 @@ export function DateCrewExperience() {
       return story.offsetTop + (P / n) * (story.offsetHeight - window.innerHeight);
     };
 
-    const lenis = (window as unknown as { lenis?: Lenis }).lenis;
     const go = (P: number) => {
       P = clamp(P, 0, n);
       if (lenis) {
@@ -759,6 +788,9 @@ export function DateCrewExperience() {
       },
     });
 
+    // Refresh ScrollTrigger to calculate all trigger distances accurately
+    ScrollTrigger.refresh();
+
     const onResize = () => {
       fitStage();
       measure();
@@ -782,6 +814,8 @@ export function DateCrewExperience() {
       }
       window.removeEventListener("keydown", onKeyDown);
       window.removeEventListener("resize", onResize);
+      if (tickerCb) gsap.ticker.remove(tickerCb);
+      if (lenis) lenis.destroy();
       ScrollTrigger.getAll().forEach((t) => t.kill());
     };
   }, []);
@@ -935,8 +969,11 @@ export function DateCrewExperience() {
           </div>
 
           <p className="quote" id="quote">
-            During the week I thrive on building robots in the lab, but late nights
-            are for canteen chai and real campus conversations.
+            {quoteWords.map((word, i) => (
+              <span key={i} className="w">
+                {word}{" "}
+              </span>
+            ))}
           </p>
           <p className="by">Ananya Sharma, in her own words</p>
         </div>
