@@ -982,38 +982,7 @@ img {
 
 /* 6. ACTION BAR */
 .bar {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 70;
-  padding: 10px 16px calc(env(safe-area-inset-bottom, 0px) + 14px);
-  display: flex;
-  justify-content: center;
-  transform: translateY(130%);
-  transition: transform 0.7s var(--ease);
-  pointer-events: none;
-}
-
-.bar.on {
-  transform: none;
-}
-
-.bar.gone,
-.bar.on.gone {
-  transform: translateY(130%);
-}
-
-.bar-in {
-  pointer-events: auto;
-  display: flex;
-  gap: 8px;
-  padding: 7px;
-  border-radius: 22px;
-  width: min(100%, 440px);
-  background: rgba(255, 255, 255, 0.94);
-  border: 1px solid rgba(243, 168, 194, 0.85);
-  box-shadow: 0 10px 30px rgba(236, 72, 153, 0.12);
+  display: none !important;
 }
 
 .btn {

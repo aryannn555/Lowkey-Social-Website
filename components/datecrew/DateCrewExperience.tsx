@@ -121,7 +121,6 @@ const factsList = [
 export function DateCrewExperience() {
   const [toastMessage, setToastMessage] = useState("");
   const [toastOn, setToastOn] = useState(false);
-  const [saved, setSaved] = useState(false);
   const [lbOpen, setLbOpen] = useState(false);
   const [lbIndex, setLbIndex] = useState(0);
   const toastTimeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -142,17 +141,6 @@ export function DateCrewExperience() {
     const apkUrl = process.env.NEXT_PUBLIC_APK_URL || "/downloads/lowkey.apk";
     window.location.href = apkUrl;
     incrementDownloads().catch(() => {});
-  };
-
-  const handleSave = () => {
-    const nextSaved = !saved;
-    setSaved(nextSaved);
-    if (nextSaved) triggerConfettiBurst();
-    showToast(
-      nextSaved
-        ? "Saved to your campus shortlist"
-        : "Removed from your shortlist"
-    );
   };
 
   const handleShare = async () => {
@@ -185,7 +173,6 @@ export function DateCrewExperience() {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const fan = document.getElementById("fan");
     const photos = Array.from(document.querySelectorAll<HTMLElement>(".ph"));
-    const bar = document.getElementById("bar");
     const descEl = document.getElementById("desc");
     const story = document.getElementById("story");
     const pin = document.getElementById("storyPin");
@@ -404,7 +391,6 @@ export function DateCrewExperience() {
       photos.forEach((el, i) => {
         el.style.transform = `translate(${sl[i].x}px,${sl[i].y}px) rotate(${sl[i].r}deg)`;
       });
-      if (bar) bar.classList.add("on");
       return;
     }
 
@@ -516,18 +502,6 @@ export function DateCrewExperience() {
     if (finePointer && fanEl) {
       fanEl.addEventListener("pointermove", onPointerMove);
       fanEl.addEventListener("pointerleave", hoverOut);
-    }
-
-    // ScrollTrigger: Show bottom bar past hero
-    if (window.innerWidth < 900) {
-      intro.add(() => bar?.classList.add("on"), 2.2);
-    } else {
-      ScrollTrigger.create({
-        trigger: "#hero",
-        start: "45% top",
-        onEnter: () => bar?.classList.add("on"),
-        onLeaveBack: () => bar?.classList.remove("on"),
-      });
     }
 
     // Centre Pills scroll on initial mount
@@ -765,14 +739,6 @@ export function DateCrewExperience() {
       }
     };
     window.addEventListener("keydown", onKeyDown);
-
-    // Hide bottom bar when entering closing
-    ScrollTrigger.create({
-      trigger: "#closing",
-      start: "top 95%",
-      onEnter: () => bar?.classList.add("gone"),
-      onLeaveBack: () => bar?.classList.remove("gone"),
-    });
 
     // Animate closing entrance smoothly without blank delay
     gsap.from([".avs", "#closeH", ".close-sub", ".close-act", "#closeWaitlist"], {
@@ -1406,41 +1372,6 @@ export function DateCrewExperience() {
           </button>
         </div>
         <p className="lb-hint">Swipe to see more or tap Prev / Next</p>
-      </div>
-
-      {/* 7. FLOATING ACTION DOCK (.bar) */}
-      <div className="bar" id="bar" role="region" aria-label="Quick actions">
-        <div className="bar-in">
-          <button
-            className={`btn icon ${saved ? "saved" : ""}`}
-            id="save"
-            type="button"
-            onClick={handleSave}
-            aria-label="Save Lowkey Social to shortlist"
-            aria-pressed={saved}
-          >
-            <Heart className="lucide" />
-          </button>
-
-          <button
-            className="btn primary"
-            type="button"
-            onClick={handleDownload}
-            data-interest
-          >
-            Download Lowkey Social
-          </button>
-
-          <button
-            className="btn icon"
-            id="share"
-            type="button"
-            onClick={handleShare}
-            aria-label="Share Lowkey Social website"
-          >
-            <Share2 className="lucide" />
-          </button>
-        </div>
       </div>
 
       {/* 8. TOAST NOTIFICATION */}
