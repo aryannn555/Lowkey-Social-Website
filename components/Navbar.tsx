@@ -56,8 +56,14 @@ export default function Navbar() {
         <Link
           href="/"
           aria-label="Lowkey Social - Home"
-          className="group flex items-center gap-1 text-2xl font-bold font-clash tracking-[-1px] text-white select-none transition-transform active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--pink)] rounded-lg px-1"
+          className="group flex items-center gap-2 text-2xl font-bold font-clash tracking-[-1px] text-white select-none transition-transform active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--pink)] rounded-lg px-1"
         >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/logo.png"
+            alt="Lowkey Social Logo"
+            className="w-8 h-8 rounded-lg object-cover border border-white/20 shadow-md"
+          />
           <span>lowkey social</span>
           <span
             className="inline-block w-2 h-2 rounded-full bg-[var(--pink)] shadow-[0_0_12px_#E8589A] transition-transform group-hover:scale-125"

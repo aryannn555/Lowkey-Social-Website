@@ -63,8 +63,9 @@ export function ScreenChapter1() {
       {/* Top Header */}
       <div>
         <div className="flex items-center gap-2 mb-4">
-          <div className="w-7 h-7 rounded-lg bg-[var(--pink)] flex items-center justify-center text-xs font-bold font-clash text-white shadow-sm">
-            L
+          <div className="w-7 h-7 rounded-lg overflow-hidden border border-white/20 shadow-sm shrink-0">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/logo.png" alt="Lowkey Social" className="w-full h-full object-cover" />
           </div>
           <span className="text-xs font-mono-code text-white/70">
             campus_auth.v1

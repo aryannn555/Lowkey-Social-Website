@@ -15,8 +15,14 @@ export default function Footer() {
             <Link
               href="/"
               aria-label="Lowkey Social - Back to top"
-              className="inline-flex items-center gap-0.5 text-2xl font-bold font-clash tracking-[-1px] text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--pink)] rounded"
+              className="inline-flex items-center gap-2 text-2xl font-bold font-clash tracking-[-1px] text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--pink)] rounded"
             >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/logo.png"
+                alt="Lowkey Social Logo"
+                className="w-7 h-7 rounded-lg object-cover border border-white/20 shadow-xs shrink-0"
+              />
               <span>lowkey social</span>
               <span className="inline-block w-2 h-2 rounded-full bg-[var(--pink)] ml-0.5 shadow-[0_0_8px_#E8589A]" aria-hidden="true" />
             </Link>
