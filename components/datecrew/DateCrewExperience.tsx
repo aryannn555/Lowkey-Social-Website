@@ -162,7 +162,7 @@ export function DateCrewExperience() {
       history.scrollRestoration = "manual";
     }
 
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const reduce = false;
     const fan = document.getElementById("fan");
     const photos = Array.from(document.querySelectorAll<HTMLElement>(".ph"));
     const descEl = document.getElementById("desc");
@@ -180,21 +180,20 @@ export function DateCrewExperience() {
     let lenis: Lenis | null = null;
     let tickerCb: ((time: number) => void) | null = null;
 
-    if (!reduce) {
-      lenis = new Lenis({
-        lerp: 0.08,
-        smoothWheel: true,
-      });
-      lenisRef.current = lenis;
+    lenis = new Lenis({
+      lerp: 0.08,
+      smoothWheel: true,
+      syncTouch: true,
+    });
+    lenisRef.current = lenis;
 
-      lenis.on("scroll", ScrollTrigger.update);
+    lenis.on("scroll", ScrollTrigger.update);
 
-      tickerCb = (time: number) => {
-        lenis?.raf(time * 1000);
-      };
-      gsap.ticker.add(tickerCb);
-      gsap.ticker.lagSmoothing(0);
-    }
+    tickerCb = (time: number) => {
+      lenis?.raf(time * 1000);
+    };
+    gsap.ticker.add(tickerCb);
+    gsap.ticker.lagSmoothing(0);
 
     // 2. Fan Geometry (DateCrew exact formula)
     const fanSlots = () => {
@@ -335,13 +334,12 @@ export function DateCrewExperience() {
           c.top = G.top;
         }
 
+        const zPhone = -Math.min(ad, 2.5) * 45;
         el.style.transform = phone
-          ? `translate3d(${x.toFixed(1)}px,0,0) scale(${s.toFixed(3)})`
+          ? `translate3d(${x.toFixed(1)}px,0,${zPhone.toFixed(0)}px) rotateY(${ry.toFixed(1)}deg) scale(${s.toFixed(3)})`
           : `translate3d(${x.toFixed(1)}px,0,${z}px) rotateY(${ry.toFixed(1)}deg) scale(${s.toFixed(3)})`;
 
-        const f = phone
-          ? "none"
-          : b > 0.2
+        const f = b > 0.4
           ? `blur(${b.toFixed(0)}px) brightness(${(1 - Math.min(ad, 1) * 0.06).toFixed(2)})`
           : ad > 0.05
           ? `brightness(${(1 - Math.min(ad, 1) * 0.06).toFixed(2)})`
@@ -377,15 +375,6 @@ export function DateCrewExperience() {
       });
     };
 
-    if (reduce) {
-      document.documentElement.classList.add("static");
-      const sl = fanSlots();
-      photos.forEach((el, i) => {
-        el.style.transform = `translate(${sl[i].x}px,${sl[i].y}px) rotate(${sl[i].r}deg)`;
-      });
-      return;
-    }
-
     measure();
     renderCards(0);
 
@@ -418,14 +407,14 @@ export function DateCrewExperience() {
         spread = true;
       }, 1.0);
 
-    // Speed up intro on any user wheel/touch interaction so scrolling is never blocked
+    // Speed up intro on active wheel/touch scroll
     const hurry = () => {
-      if (intro.isActive()) intro.timeScale(3);
-      ["wheel", "touchstart", "keydown", "pointerdown"].forEach((t) =>
+      if (intro.isActive()) intro.timeScale(2.5);
+      ["wheel", "touchmove"].forEach((t) =>
         removeEventListener(t, hurry)
       );
     };
-    ["wheel", "touchstart", "keydown", "pointerdown"].forEach((t) =>
+    ["wheel", "touchmove"].forEach((t) =>
       addEventListener(t, hurry, { passive: true })
     );
 
@@ -468,7 +457,6 @@ export function DateCrewExperience() {
       });
     };
 
-    const finePointer = window.matchMedia("(pointer:fine)").matches;
     const fanEl = document.getElementById("fan");
     const onPointerMove = (e: PointerEvent) => {
       if (!fanEl) return;
@@ -487,9 +475,30 @@ export function DateCrewExperience() {
       hoverIn(best);
     };
 
-    if (finePointer && fanEl) {
+    const onTouchFan = (e: TouchEvent) => {
+      if (!fanEl || e.touches.length === 0) return;
+      const touch = e.touches[0];
+      const r = fanEl.getBoundingClientRect();
+      const x = touch.clientX - (r.left + r.width / 2);
+      const sl = fanSlots();
+      let best = 0;
+      let bd = Infinity;
+      sl.forEach((p, i) => {
+        const d = Math.abs(p.x - x);
+        if (d < bd) {
+          bd = d;
+          best = i;
+        }
+      });
+      hoverIn(best);
+    };
+
+    if (fanEl) {
       fanEl.addEventListener("pointermove", onPointerMove);
       fanEl.addEventListener("pointerleave", hoverOut);
+      fanEl.addEventListener("touchmove", onTouchFan, { passive: true });
+      fanEl.addEventListener("touchstart", onTouchFan, { passive: true });
+      fanEl.addEventListener("touchend", hoverOut, { passive: true });
     }
 
     // Highlight text in #desc
@@ -513,31 +522,18 @@ export function DateCrewExperience() {
     // Words quote illumination
     const words = Array.from(document.querySelectorAll<HTMLElement>(".quote .w"));
     if (words.length > 0) {
-      if (window.innerWidth < 900) {
-        ScrollTrigger.create({
-          trigger: "#quote",
-          start: "top 82%",
-          end: "bottom 46%",
-          scrub: true,
-          onUpdate: (s) => {
-            const k = Math.round(s.progress * words.length);
-            words.forEach((w, i) => w.classList.toggle("on", i < k));
-          },
-        });
-      } else {
-        ScrollTrigger.create({
-          trigger: "#words",
-          start: "top top",
-          end: "bottom bottom",
-          scrub: true,
-          onUpdate: (s) => {
-            const k = Math.round(
-              clamp((s.progress - 0.05) / 0.8, 0, 1) * words.length
-            );
-            words.forEach((w, i) => w.classList.toggle("on", i < k));
-          },
-        });
-      }
+      ScrollTrigger.create({
+        trigger: "#words",
+        start: "top top",
+        end: "bottom bottom",
+        scrub: true,
+        onUpdate: (s) => {
+          const k = Math.round(
+            clamp((s.progress - 0.05) / 0.8, 0, 1) * words.length
+          );
+          words.forEach((w, i) => w.classList.toggle("on", i < k));
+        },
+      });
     }
 
     // Floating parallax cards in Words
@@ -702,11 +698,62 @@ export function DateCrewExperience() {
       go(clamp(dest, 0, n));
     };
 
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let touchP0 = 0;
+    let isSwiping = false;
+
+    const onTouchStartPin = (e: TouchEvent) => {
+      if (!st || e.touches.length === 0) return;
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+      touchP0 = st.progress * n;
+      isSwiping = false;
+    };
+
+    const onTouchMoveStory = (e: TouchEvent) => {
+      if (!st || e.touches.length === 0) return;
+      const dx = e.touches[0].clientX - touchStartX;
+      const dy = e.touches[0].clientY - touchStartY;
+
+      if (!isSwiping) {
+        if (Math.abs(dx) > 10 && Math.abs(dx) > Math.abs(dy) * 1.1) {
+          isSwiping = true;
+          if (idle) clearTimeout(idle);
+        }
+      }
+
+      if (isSwiping) {
+        if (e.cancelable) e.preventDefault();
+        const nextP = clamp(touchP0 - dx / (G.Wc * 0.9), 0, n);
+        renderCards(nextP);
+        scrollToP(nextP);
+      }
+    };
+
+    const onTouchEndStory = (e: TouchEvent) => {
+      if (!isSwiping || !st) return;
+      isSwiping = false;
+      const currentP = st.progress * n;
+      let dest = Math.round(currentP);
+      const dx = (e.changedTouches[0]?.clientX || touchStartX) - touchStartX;
+      if (Math.abs(dx) > 36) {
+        dest = dx < 0 ? Math.ceil(touchP0) : Math.floor(touchP0);
+        if (dest === Math.round(touchP0)) {
+          dest += dx < 0 ? 1 : -1;
+        }
+      }
+      go(clamp(dest, 0, n));
+    };
+
     if (pin) {
       pin.addEventListener("pointerdown", onPointerDown);
       pin.addEventListener("pointermove", onPointerMovePin);
       pin.addEventListener("pointerup", onPointerUpPin);
       pin.addEventListener("pointercancel", onPointerUpPin);
+      pin.addEventListener("touchstart", onTouchStartPin, { passive: true });
+      pin.addEventListener("touchmove", onTouchMoveStory, { passive: false });
+      pin.addEventListener("touchend", onTouchEndStory, { passive: true });
     }
 
     const onKeyDown = (e: KeyboardEvent) => {
@@ -721,6 +768,20 @@ export function DateCrewExperience() {
       }
     };
     window.addEventListener("keydown", onKeyDown);
+
+    // Animate closing entrance smoothly
+    gsap.from([".avs", ".close-app-badge", "#closeH", ".close-sub", ".close-act", "#closeWaitlist"], {
+      y: 24,
+      opacity: 0,
+      duration: 0.8,
+      ease: "power2.out",
+      stagger: 0.08,
+      scrollTrigger: {
+        trigger: "#closing",
+        start: "top 85%",
+        toggleActions: "play none none reverse",
+      },
+    });
 
     // Refresh ScrollTrigger to calculate all trigger distances accurately
     ScrollTrigger.refresh();
@@ -739,12 +800,18 @@ export function DateCrewExperience() {
       if (fanEl) {
         fanEl.removeEventListener("pointermove", onPointerMove);
         fanEl.removeEventListener("pointerleave", hoverOut);
+        fanEl.removeEventListener("touchmove", onTouchFan);
+        fanEl.removeEventListener("touchstart", onTouchFan);
+        fanEl.removeEventListener("touchend", hoverOut);
       }
       if (pin) {
         pin.removeEventListener("pointerdown", onPointerDown);
         pin.removeEventListener("pointermove", onPointerMovePin);
         pin.removeEventListener("pointerup", onPointerUpPin);
         pin.removeEventListener("pointercancel", onPointerUpPin);
+        pin.removeEventListener("touchstart", onTouchStartPin);
+        pin.removeEventListener("touchmove", onTouchMoveStory);
+        pin.removeEventListener("touchend", onTouchEndStory);
       }
       window.removeEventListener("keydown", onKeyDown);
       window.removeEventListener("resize", onResize);

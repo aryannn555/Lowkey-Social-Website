@@ -1192,13 +1192,20 @@ img {
     line-height: 1.6;
   }
   .words {
-    height: auto;
+    position: relative;
+    height: 220svh;
     overflow-x: clip;
   }
   .words .pin {
-    position: relative;
-    height: auto;
-    padding: 34svh 16px 30svh;
+    position: sticky;
+    top: 0;
+    height: 100svh;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+    align-content: center;
+    gap: 18px;
+    padding: 0 18px;
   }
   .fl {
     border-radius: 16px;
