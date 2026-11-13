@@ -781,20 +781,6 @@ export function DateCrewExperience() {
     };
     window.addEventListener("keydown", onKeyDown);
 
-    // Animate closing entrance smoothly
-    gsap.from([".avs", ".close-app-badge", "#closeH", ".close-sub", ".close-act", "#closeWaitlist"], {
-      y: 24,
-      opacity: 0,
-      duration: 0.8,
-      ease: "power2.out",
-      stagger: 0.08,
-      scrollTrigger: {
-        trigger: "#closing",
-        start: "top 85%",
-        toggleActions: "play none none reverse",
-      },
-    });
-
     // Refresh ScrollTrigger to calculate all trigger distances accurately
     ScrollTrigger.refresh();
 
