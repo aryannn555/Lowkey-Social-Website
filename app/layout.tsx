@@ -1,35 +1,20 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import CustomCursor from "@/components/CustomCursor";
 import SmoothScroll from "@/components/SmoothScroll";
 
 export const metadata: Metadata = {
-  title: "Lowkey: Lowkey into someone?",
+  title: "Lowkey · College-exclusive dating for Indian students",
   description:
     "The dating app where everyone is from your campus. Verified college-email-only signup for Indian students. Private, safe, and campus-exclusive.",
   metadataBase: new URL("https://lowkeysocial.in"),
   openGraph: {
-    title: "Lowkey: Lowkey into someone?",
+    title: "Lowkey · College-exclusive dating for Indian students",
     description:
       "The dating app where everyone is from your campus. Verified. Real. Yours.",
     url: "https://lowkeysocial.in",
     siteName: "Lowkey Social",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Lowkey - Campus Exclusive Connections",
-      },
-    ],
     locale: "en_IN",
     type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Lowkey: Lowkey into someone?",
-    description: "The dating app where everyone is from your campus.",
-    creator: "@lowkeysocial",
   },
   icons: {
     icon: "/favicon.ico",
@@ -37,7 +22,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#080808",
+  themeColor: "#FBF7F0",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -49,9 +34,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en">
       <head>
-        <link rel="preconnect" href="https://api.fontshare.com" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
@@ -60,19 +44,15 @@ export default function RootLayout({
         />
         <link
           rel="stylesheet"
-          href="https://api.fontshare.com/v2/css?f[]=clash-display@300,400,500,600,700&f[]=satoshi@300,400,500,700,900&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=DM+Sans:opsz,wght@9..40,400..700&display=swap"
         />
+        <link rel="preconnect" href="https://api.fontshare.com" />
         <link
           rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+          href="https://api.fontshare.com/v2/css?f[]=clash-display@300,400,500,600,700&f[]=satoshi@300,400,500,700,900&display=swap"
         />
       </head>
-      <body className="bg-[#080808] text-white selection:bg-[#E8589A]/30 selection:text-white">
-        {/* Film grain noise overlay */}
-        <div className="film-grain" aria-hidden="true" />
-        {/* Glowing pink cursor dot */}
-        <CustomCursor />
-        {/* Smooth scroll wrapper */}
+      <body>
         <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>

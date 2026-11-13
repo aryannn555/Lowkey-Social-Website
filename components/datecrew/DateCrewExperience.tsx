@@ -11,7 +11,6 @@ import {
   Flame,
   Heart,
   ShieldCheck,
-  Download,
   Share2,
   Check,
   MessageSquare,
@@ -21,13 +20,12 @@ import {
   Coffee,
   ArrowUpRight,
   X,
-  Terminal,
 } from "lucide-react";
+import { InstagramIcon } from "@/components/InstagramIcon";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import type Lenis from "lenis";
 import { triggerConfettiBurst } from "@/components/ui/ConfettiBurst";
-import { InstagramIcon } from "@/components/InstagramIcon";
 import WaitlistForm from "@/components/WaitlistForm";
 import { incrementDownloads } from "@/lib/supabase";
 
@@ -65,86 +63,53 @@ const fanPhotos = [
 const pillsList = [
   { icon: <GraduationCap className="lucide" />, text: "Acropolis Institute '26" },
   { icon: <MapPin className="lucide" />, text: "Indore Campus" },
-  { icon: <Code2 className="lucide" />, text: "Computer Science" },
-  { icon: <Flame className="lucide" />, text: "8 Free Daily Swipes" },
-  { icon: <Heart className="lucide" />, text: "Secret Crush Vault" },
-  { icon: <ShieldCheck className="lucide" />, text: "College-Email Gated" },
+  { icon: <Code2 className="lucide" />, text: "B.Tech CS" },
+  { icon: <Flame className="lucide" />, text: "8 free daily swipes" },
+  { icon: <Heart className="lucide" />, text: "Secret crush list" },
+  { icon: <ShieldCheck className="lucide" />, text: "College email only" },
 ];
 
 const factsList = [
   {
     icon: <GraduationCap className="lucide" />,
-    dt: "Campus Network",
-    dd: "Your College Only",
+    dt: "Campus network",
+    dd: "Your college only",
   },
   {
     icon: <ShieldCheck className="lucide" />,
     dt: "Verification",
-    dd: "College Email Gated",
+    dd: "College email gated",
   },
   {
     icon: <Flame className="lucide" />,
-    dt: "Daily Swipes",
-    dd: "8 Free Swipes Daily",
+    dt: "Swipe deck",
+    dd: "8 free daily swipes",
   },
   {
     icon: <Heart className="lucide" />,
-    dt: "The Crush List",
-    dd: "Secret Dual-Vault",
+    dt: "Crush list",
+    dd: "Secret dual-vault",
   },
   {
     icon: <Sparkles className="lucide" />,
-    dt: "Match Algorithm",
-    dd: "5 Daily Campus Picks",
+    dt: "Daily picks",
+    dd: "5 fresh people daily",
   },
   {
     icon: <MessageSquare className="lucide" />,
-    dt: "Real-time Chat",
-    dd: "Mutual Matches Only",
+    dt: "Conversations",
+    dd: "Mutual matches only",
   },
   {
     icon: <Trash2 className="lucide" />,
-    dt: "Data Sovereignty",
-    dd: "Full Hard Delete",
+    dt: "Data safety",
+    dd: "Hard delete anytime",
   },
   {
     icon: <Radio className="lucide" />,
-    dt: "Campus Radar",
-    dd: "Proximity Reveal",
+    dt: "Campus radar",
+    dd: "Proximity reveal",
     tag: "COMING SOON",
-  },
-];
-
-const timelineBeats = [
-  {
-    title: "I'm Aryan.",
-    tag: "AITR INDORE // 2AM",
-    text: "Computer science student at Acropolis Institute of Technology and Research, Indore. I build things alone, mostly at 2am.",
-    placeholder: "[ONE LINE ABOUT YOU]",
-  },
-  {
-    title: "The problem I kept seeing.",
-    tag: "CAMPUS DILEMMA",
-    text: "",
-    placeholder:
-      "[YOUR REAL REASON: what you noticed on campus that made you want to build this]",
-  },
-  {
-    title: "Hackathon nights.",
-    tag: "SPRINTING THROUGH DAWN",
-    text: "Hackathons taught me to ship fast and sleep later.",
-    placeholder: "[ONE LINE ABOUT A HACKATHON MOMENT]",
-  },
-  {
-    title: "Lowkey is born.",
-    tag: "OCTOBER 2024",
-    text: "",
-    placeholder: "[WHY THE NAME / WHY NOW]",
-  },
-  {
-    title: "What I promise.",
-    tag: "THE CAMPUS PLEDGE",
-    text: "Your data stays yours. Your college stays private. Delete everything anytime. No selling, no creeping.",
   },
 ];
 
@@ -205,7 +170,6 @@ export function DateCrewExperience() {
   useEffect(() => {
     if (typeof window === "undefined") return;
 
-    // Manual scroll restoration
     if ("scrollRestoration" in history) {
       history.scrollRestoration = "manual";
     }
@@ -221,7 +185,6 @@ export function DateCrewExperience() {
     const cards = Array.from(document.querySelectorAll<HTMLElement>(".card"));
     const n = cards.length;
 
-    // Helper functions
     const clamp = (v: number, a: number, b: number) =>
       Math.min(b, Math.max(a, v));
     const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
@@ -235,7 +198,7 @@ export function DateCrewExperience() {
         .join(" ");
     }
 
-    // 2. Fan Geometry
+    // 2. Fan Geometry (DateCrew exact formula)
     const fanSlots = () => {
       const w = fan ? fan.offsetWidth : 230;
       const desk = window.innerWidth >= 900;
@@ -275,7 +238,7 @@ export function DateCrewExperience() {
       s: 1 - (3 - i) * 0.05,
     });
 
-    // 3. Carousel Geometry
+    // 3. Carousel Geometry (DateCrew exact formula)
     let G: {
       vw: number;
       vh: number;
@@ -733,7 +696,7 @@ export function DateCrewExperience() {
           try {
             pin.setPointerCapture(e.pointerId);
           } catch {
-            // ignore pointer capture errors
+            // pointer capture not supported
           }
         } else return;
       }
@@ -824,8 +787,8 @@ export function DateCrewExperience() {
   }, []);
 
   return (
-    <div className="relative w-full bg-[#080808] text-white">
-      {/* 1. TOP BAR WITH PROGRESSIVE MULTI-LAYER BLUR */}
+    <>
+      {/* TOP BAR */}
       <header className="top" role="banner">
         <div className="nb" aria-hidden="true">
           <i />
@@ -834,23 +797,22 @@ export function DateCrewExperience() {
           <i />
           <i />
         </div>
-        <Link href="/" className="brand" aria-label="Lowkey Social - Home">
-          <span>lowkey</span>
-          <span className="brand-dot" aria-hidden="true" />
+        <Link href="/" className="brand" aria-label="Lowkey - Home">
+          Lowkey
         </Link>
         <span className="priv">
           <Lock className="lucide" aria-hidden="true" />
-          <span>Shared privately • Exclusive Campus Deck</span>
+          <span>Shared privately</span>
         </span>
       </header>
 
-      {/* 2. HERO */}
+      {/* 1. HERO */}
       <section className="hero" id="hero" aria-label="Campus Hero Spotlight">
         <div className="stage">
           {/* Spatial watermark */}
           <div className="backname" aria-hidden="true">
             <span className="sharp" id="bn">
-              LOWKEY
+              Lowkey
             </span>
           </div>
           {/* Progressive blur mask for spatial name */}
@@ -872,7 +834,7 @@ export function DateCrewExperience() {
             {fanPhotos.map((photo, i) => (
               <div
                 key={i}
-                className="ph group"
+                className="ph"
                 onClick={() => openLightbox(i)}
                 onKeyDown={(e) => {
                   if (e.key === "Enter" || e.key === " ") {
@@ -907,7 +869,7 @@ export function DateCrewExperience() {
             clip: "rect(0 0 0 0)",
           }}
         >
-          Lowkey: Campus Exclusive Connections for Indian Students
+          Meet Lowkey: College-exclusive dating for Indian students
         </h1>
 
         <p className="why" id="why">
@@ -927,13 +889,11 @@ export function DateCrewExperience() {
 
         {/* Editorial Description with Highlights */}
         <p className="desc" id="desc">
-          Lowkey is the campus-exclusive dating and connections app where
-          students only ever see people from their{" "}
-          <span className="mk">verified college domain</span>. Discover{" "}
-          <span className="mk">5 curated daily picks</span>, secretly add
-          crushes to your <span className="mk">private vault</span>, grab{" "}
-          <span className="mk">8 free daily swipes</span>, and unlock real-time
-          chats <span className="mk">exclusively upon mutual match</span> with
+          Lowkey is the campus-exclusive dating app for verified students.
+          Sign up with your <span className="mk">college email</span> and nobody
+          else gets in. Discover <span className="mk">5 curated daily picks</span>,
+          secretly add crushes to your <span className="mk">private vault</span>,
+          and unlock real-time chats <span className="mk">only upon mutual match</span> with
           zero strangers or spam.
         </p>
 
@@ -945,52 +905,12 @@ export function DateCrewExperience() {
             onClick={handleDownload}
             data-interest
           >
-            <Download className="w-4 h-4 mr-1" aria-hidden="true" />
-            <span>Download for Android</span>
+            Download for Android
           </button>
-          <a className="cta ghost" href="#words">
-            <span>Explore Campus Story</span>
-          </a>
         </div>
       </section>
 
-      {/* 2b. CAMPUS TICKER MARQUEE */}
-      <section
-        className="w-full py-6 overflow-hidden border-y border-white/[0.06] bg-[#0c0c0c] select-none"
-        aria-label="Verified Campuses"
-      >
-        <div className="flex w-max animate-marquee space-x-8 text-xs font-mono-code text-white/50">
-          <span>ACROPOLIS INSTITUTE (AITR) INDORE</span>
-          <span className="text-[var(--pink)]">•</span>
-          <span>IIT INDORE</span>
-          <span className="text-[var(--pink)]">•</span>
-          <span>IIM INDORE</span>
-          <span className="text-[var(--pink)]">•</span>
-          <span>SGSITS INDORE</span>
-          <span className="text-[var(--pink)]">•</span>
-          <span>DAVV INDORE</span>
-          <span className="text-[var(--pink)]">•</span>
-          <span>MEDI-CAPS UNIVERSITY</span>
-          <span className="text-[var(--pink)]">•</span>
-          <span>NMIMS INDORE</span>
-          <span className="text-[var(--pink)]">•</span>
-          <span>SYMBIOSIS INDORE</span>
-          <span className="text-[var(--pink)]">•</span>
-          <span>ACROPOLIS INSTITUTE (AITR) INDORE</span>
-          <span className="text-[var(--pink)]">•</span>
-          <span>IIT INDORE</span>
-          <span className="text-[var(--pink)]">•</span>
-          <span>IIM INDORE</span>
-          <span className="text-[var(--pink)]">•</span>
-          <span>SGSITS INDORE</span>
-          <span className="text-[var(--pink)]">•</span>
-          <span>DAVV INDORE</span>
-          <span className="text-[var(--pink)]">•</span>
-          <span>MEDI-CAPS UNIVERSITY</span>
-        </div>
-      </section>
-
-      {/* 3. WORDS: PINNED WORD-BY-WORD REVEAL WITH FLOATING PORTRAITS */}
+      {/* 2. WORDS: PINNED WORD-BY-WORD REVEAL WITH FLOATING PORTRAITS */}
       <section className="words" id="words" aria-label="Student Quote Spotlight">
         <div className="pin">
           {/* Floating portrait 1 */}
@@ -1015,21 +935,17 @@ export function DateCrewExperience() {
           </div>
 
           <p className="quote" id="quote">
-            During the week I’m debugging code in the robotics lab, but late
-            nights are for canteen chai and real conversations with people who
-            actually go to my college.
+            During the week I thrive on building robots in the lab, but late nights
+            are for canteen chai and real campus conversations.
           </p>
-          <p className="by">
-            Ananya Sharma, in her own words — B.Tech Computer Science, Acropolis
-            Institute &apos;26
-          </p>
+          <p className="by">Ananya Sharma, in her own words</p>
         </div>
       </section>
 
-      {/* 4. DETAILS (CAMPUS ESSENTIALS BENTO GRID) */}
+      {/* 2b. DETAILS (CAMPUS ESSENTIALS BENTO GRID) */}
       <section className="facts" id="facts" aria-label="Campus Essentials">
-        <h2 className="disp">Campus Essentials</h2>
-        <p>The rules of the campus enclave, in one place.</p>
+        <h2 className="disp">Campus essentials</h2>
+        <p>The essentials, in one place.</p>
         <dl className="fgrid" id="fgrid">
           {factsList.map((fact, i) => (
             <div key={i} className="fc">
@@ -1038,7 +954,15 @@ export function DateCrewExperience() {
               <dd>
                 {fact.dd}
                 {fact.tag && (
-                  <span className="block text-[9px] font-mono-code text-[var(--gold)] mt-0.5 font-bold tracking-wider">
+                  <span
+                    style={{
+                      display: "block",
+                      fontSize: "11px",
+                      color: "var(--gold)",
+                      fontWeight: 700,
+                      marginTop: "2px",
+                    }}
+                  >
                     {fact.tag}
                   </span>
                 )}
@@ -1048,15 +972,15 @@ export function DateCrewExperience() {
         </dl>
       </section>
 
-      {/* 5. 3D CURVED PERSPECTIVE STORY CAROUSEL */}
+      {/* 3. 3D CURVED PERSPECTIVE STORY CAROUSEL */}
       <section className="story" id="story" aria-label="The 7 Lowkey Chapters">
         <div className="pin" id="storyPin">
           <div className="story-head">
-            <h2 className="disp">The Lowkey Chapters</h2>
-            <p>Scroll or swipe through the 7 campus pillars.</p>
+            <h2 className="disp">The rest of the story</h2>
+            <p>Scroll or swipe through.</p>
           </div>
 
-          {/* Chapter 1 */}
+          {/* Chapter 1: Photo Card */}
           <article className="card c-photo">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
@@ -1064,223 +988,169 @@ export function DateCrewExperience() {
               alt="Students talking on campus"
               loading="lazy"
             />
-            <div className="pb" />
+            <div className="pb">
+              <i />
+              <i />
+              <i />
+            </div>
             <div className="in">
-              <span className="text-[11px] font-mono-code text-[var(--pink-light)] font-bold tracking-widest uppercase">
-                CHAPTER 01
-              </span>
-              <h3 className="disp">Only your college.</h3>
+              <h3 className="disp">Only your college</h3>
               <p>
                 Sign up with your college email and nobody else gets in. Every
                 college is its own private world.
               </p>
-              <div className="chips">
-                <span>
-                  <GraduationCap className="lucide" />
-                  @acropolis.in gated
-                </span>
-                <span>
-                  <ShieldCheck className="lucide" />
-                  Zero outsiders
-                </span>
-                <span>
-                  <Lock className="lucide" />
-                  Private enclave
-                </span>
-              </div>
             </div>
           </article>
 
-          {/* Chapter 2 */}
+          {/* Chapter 2: Swipe deck */}
           <article className="card c-blush">
             <div className="in">
-              <span className="text-[11px] font-mono-code text-[var(--pink-light)] font-bold tracking-widest uppercase">
-                CHAPTER 02
-              </span>
               <h3 className="disp">Swipe. Match. Talk.</h3>
               <p>
-                8 free swipes a day, so every swipe counts. Want to explore
-                further? 10 extra swipes for just ₹29.
+                8 free swipes every day, so every swipe counts. 10 extra swipes
+                for ₹29 when you want to explore more.
               </p>
               <div className="chips">
                 <span>
                   <Flame className="lucide" />8 free swipes/day
                 </span>
                 <span>
-                  <Sparkles className="lucide" />
-                  10 extra for ₹29
+                  <Sparkles className="lucide" />10 extra for ₹29
                 </span>
                 <span>
-                  <Coffee className="lucide" />
-                  Thoughtful matching
+                  <Coffee className="lucide" />Quality matching
                 </span>
               </div>
             </div>
           </article>
 
-          {/* Chapter 3 */}
+          {/* Chapter 3: Crush list */}
           <article className="card c-mist">
             <div className="in">
-              <span className="text-[11px] font-mono-code text-[var(--pink-light)] font-bold tracking-widest uppercase">
-                CHAPTER 03
-              </span>
-              <h3 className="disp">The crush list.</h3>
+              <h3 className="disp">The secret crush list</h3>
               <p>
-                Add your crush in secret. If they add you back, both of you find
+                Add your crush in secret. If they add you too, both of you find
                 out. If not, nobody ever knows.
               </p>
               <div className="chips">
                 <span>
-                  <Lock className="lucide" />
-                  Secret Dual-Vault
+                  <Lock className="lucide" />Secret dual-vault
                 </span>
                 <span>
-                  <Heart className="lucide" />
-                  Zero exposure
+                  <Heart className="lucide" />Zero exposure
                 </span>
                 <span>
-                  <ShieldCheck className="lucide" />
-                  Mutual reveal only
+                  <ShieldCheck className="lucide" />Mutual reveal
                 </span>
               </div>
             </div>
           </article>
 
-          {/* Chapter 4 */}
+          {/* Chapter 4: Daily picks */}
           <article className="card c-sky">
             <div className="in">
-              <span className="text-[11px] font-mono-code text-[var(--pink-light)] font-bold tracking-widest uppercase">
-                CHAPTER 04
-              </span>
               <h3 className="disp">Five new people. Every day.</h3>
               <p>
-                Curated daily on shared interests, never repeated within 30 days.
-                No algorithmic fatigue.
+                Matched on what you actually like, never repeated within 30
+                days. No endless doom-scrolling.
               </p>
               <div className="chips">
                 <span>
                   <Sparkles className="lucide" />5 daily picks
                 </span>
                 <span>
-                  <BookOpen className="lucide" />
-                  Shared interests
+                  <BookOpen className="lucide" />Shared interests
                 </span>
                 <span>
-                  <Check className="lucide" />
-                  30-day reset cycle
+                  <Check className="lucide" />30-day reset
                 </span>
               </div>
             </div>
           </article>
 
-          {/* Chapter 5 */}
+          {/* Chapter 5: Real-time chat */}
           <article className="card c-honey">
             <div className="in">
-              <span className="text-[11px] font-mono-code text-[var(--pink-light)] font-bold tracking-widest uppercase">
-                CHAPTER 05
-              </span>
-              <h3 className="disp">Say something.</h3>
+              <h3 className="disp">Say something genuine</h3>
               <p>
                 Real-time chat unlocks only when it&apos;s mutual. Zero cold DMs.
-                Genuine, safe campus chats.
+                Only verified campus conversations.
               </p>
               <div className="chips">
                 <span>
-                  <MessageSquare className="lucide" />
-                  Mutual matches only
+                  <MessageSquare className="lucide" />Mutual matches
                 </span>
                 <span>
-                  <ShieldCheck className="lucide" />
-                  Zero unsolicited DMs
+                  <ShieldCheck className="lucide" />Zero cold DMs
                 </span>
                 <span>
-                  <Lock className="lucide" />
-                  Direct &amp; encrypted
+                  <Lock className="lucide" />Direct &amp; safe
                 </span>
               </div>
             </div>
           </article>
 
-          {/* Chapter 6 */}
+          {/* Chapter 6: Proximity reveal */}
           <article className="card c-cream">
             <div className="in">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[var(--gold)]/20 border border-[var(--gold)]/40 text-[var(--gold)] text-xs font-mono-code font-bold">
-                <Radio className="w-3.5 h-3.5" />
-                <span>COMING SOON</span>
-              </div>
-              <h3 className="disp">Feel them nearby.</h3>
+              <h3 className="disp">Feel them nearby</h3>
               <p>
-                Mutual crushes can sense each other on campus, and the reveal
-                happens in person.
+                Mutual crushes can feel each other nearby on campus, and the
+                reveal happens in person.
               </p>
               <div className="chips">
                 <span>
-                  <Radio className="lucide" />
-                  Peer radar pulse
+                  <Radio className="lucide" />Coming soon
                 </span>
                 <span>
-                  <MapPin className="lucide" />
-                  In-person reveal
+                  <MapPin className="lucide" />Campus radar
                 </span>
                 <span>
-                  <Lock className="lucide" />
-                  Zero GPS logging
+                  <Lock className="lucide" />Zero GPS logging
                 </span>
               </div>
             </div>
           </article>
 
-          {/* Chapter 7 */}
+          {/* Chapter 7: Safety & Hard Delete */}
           <article className="card c-moss">
             <div className="in">
-              <span className="text-[11px] font-mono-code text-[var(--pink-light)] font-bold tracking-widest uppercase">
-                CHAPTER 07
-              </span>
-              <h3 className="disp">Your rules.</h3>
+              <h3 className="disp">Your rules, your data</h3>
               <p>
                 Report, block, or unmatch anytime. Delete your entire account and
-                every trace of data whenever you want.
+                every trace of your data whenever you want.
               </p>
               <div className="chips">
                 <span>
-                  <ShieldCheck className="lucide" />
-                  Report &amp; block
+                  <ShieldCheck className="lucide" />Report &amp; block
                 </span>
                 <span>
-                  <Trash2 className="lucide" />
-                  Full hard delete
+                  <Trash2 className="lucide" />Full hard delete
                 </span>
                 <span>
-                  <Lock className="lucide" />
-                  Data sovereignty
+                  <Check className="lucide" />Instant unmatch
                 </span>
               </div>
             </div>
           </article>
 
-          {/* Chapter 8 (Founder Card) */}
+          {/* Chapter 8: Founder Card */}
           <article className="card c-blush">
             <div className="in">
-              <span className="text-[11px] font-mono-code text-[var(--pink-light)] font-bold tracking-widest uppercase">
-                FOUNDER
-              </span>
-              <h3 className="disp">Built by one student.</h3>
+              <h3 className="disp">Built by one student</h3>
               <p>
-                Aryan Gupta, Acropolis Institute &apos;26. Built alone mostly at
-                2am for our own campus.
+                Aryan Gupta, CS student at Acropolis Institute (AITR), Indore.
+                Built alone mostly at 2am for our campus.
               </p>
               <div className="chips">
                 <span>
-                  <Code2 className="lucide" />
-                  Acropolis &apos;26
+                  <Code2 className="lucide" />AITR Indore &apos;26
                 </span>
                 <span>
-                  <Terminal className="lucide" />
-                  Solo developer
+                  <Heart className="lucide" />Solo developer
                 </span>
                 <span>
-                  <Check className="lucide" />
-                  Zero corporate ads
+                  <Check className="lucide" />No corporate ads
                 </span>
               </div>
             </div>
@@ -1288,111 +1158,7 @@ export function DateCrewExperience() {
         </div>
       </section>
 
-      {/* 6. FOUNDER STORY (CINEMATIC TIMELINE WITH BRACKETED PLACEHOLDERS) */}
-      <section
-        id="founder"
-        aria-label="Founder Story"
-        className="relative w-full py-28 sm:py-36 bg-[#080808] border-t border-white/[0.08] overflow-hidden"
-      >
-        <div className="max-w-[1200px] mx-auto px-6 sm:px-8 relative z-10">
-          <div className="text-center max-w-2xl mx-auto mb-20">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.05] border border-white/10 text-xs font-mono-code text-[var(--pink-light)] mb-4">
-              <Terminal className="w-3.5 h-3.5 text-[var(--pink)]" />
-              <span>FOUNDER ORIGIN</span>
-            </div>
-            <h2 className="disp text-4xl sm:text-6xl text-white mb-4">
-              Built by one student.
-            </h2>
-            <p className="text-base sm:text-lg text-white/70 font-sans tracking-[-0.2px]">
-              No corporate board. No investors demanding your attention spans.
-              Just late nights, iced canteen chai, and code written for our own
-              campus.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-            {/* Left Column: Photo Placeholder */}
-            <div className="lg:col-span-5 sticky top-28 flex flex-col items-center">
-              <div className="relative w-full max-w-[360px] aspect-[4/5] rounded-[24px] overflow-hidden p-1 bg-gradient-to-b from-[var(--pink)]/40 via-white/10 to-transparent shadow-[0_0_50px_rgba(232,88,154,0.25)]">
-                <div className="w-full h-full rounded-[22px] overflow-hidden bg-[#141414] p-8 flex flex-col items-center justify-between text-center bg-gradient-to-b from-[#1c121b] to-[#0c0c0c]">
-                  <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/60">
-                    <Code2 className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <div className="w-24 h-24 rounded-full bg-[var(--pink)]/20 border-2 border-[var(--pink)] mx-auto mb-4 flex items-center justify-center text-3xl font-clash font-bold text-white shadow-[0_0_24px_rgba(232,88,154,0.4)] select-none">
-                      AG
-                    </div>
-                    <h4 className="font-clash font-bold text-2xl text-white">
-                      Aryan Gupta
-                    </h4>
-                    <p className="text-xs font-mono-code text-[var(--pink-light)] mt-1">
-                      Founder &amp; Solo Developer
-                    </p>
-                    <p className="text-xs text-white/60 mt-1">
-                      Acropolis Institute (AITR) &apos;26
-                    </p>
-                  </div>
-                  <div className="text-[10px] font-mono-code text-white/50 border border-dashed border-white/15 px-3 py-1.5 rounded-lg">
-                    Replace photo at /public/founder.jpg
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Column: Timeline Beats with Required Bracket Placeholders */}
-            <div className="lg:col-span-7 space-y-12">
-              {timelineBeats.map((beat, idx) => (
-                <div
-                  key={idx}
-                  className="relative pl-8 border-l border-white/10 space-y-2 group"
-                >
-                  <span className="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-[var(--pink)] shadow-[0_0_10px_#E8589A]" />
-                  <span className="text-[11px] font-mono-code text-[var(--pink-light)] font-bold tracking-wider uppercase block">
-                    {beat.tag}
-                  </span>
-                  <h3 className="font-clash font-bold text-2xl text-white tracking-tight">
-                    {beat.title}
-                  </h3>
-                  {beat.text && (
-                    <p className="text-white/80 font-sans text-base leading-relaxed">
-                      {beat.text}
-                    </p>
-                  )}
-                  {beat.placeholder && (
-                    <div className="inline-block p-3 rounded-xl bg-white/[0.04] border border-dashed border-white/20 text-white/90 text-sm font-mono-code">
-                      {beat.placeholder}
-                    </div>
-                  )}
-                </div>
-              ))}
-
-              {/* Founder Pull Quote */}
-              <div className="p-8 rounded-2xl bg-white/[0.03] border border-white/10 space-y-6">
-                <p className="text-xs font-mono-code text-[var(--pink-light)] uppercase tracking-wider font-bold">
-                  THE MANIFESTO
-                </p>
-                <blockquote className="font-clash font-bold text-2xl sm:text-3xl text-white leading-snug">
-                  &ldquo;[YOUR ONE-LINE MISSION]&rdquo;
-                </blockquote>
-                <div className="pt-2">
-                  <a
-                    href="[INSTAGRAM URL]"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/[0.06] hover:bg-white/[0.12] border border-white/15 text-xs font-mono-code text-white transition-all hover:scale-105"
-                  >
-                    <InstagramIcon className="w-4 h-4 text-[var(--pink)]" />
-                    <span>Connect on Instagram [INSTAGRAM URL]</span>
-                    <ArrowUpRight className="w-3.5 h-3.5 text-white/60" />
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 7. CLOSING CALL TO ACTION (WITH MATCHMAKER AVATAR STACK) */}
+      {/* 4. CLOSING */}
       <section className="closing" id="closing" aria-label="Closing Call to Action">
         <div className="avs" aria-hidden="true">
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -1416,97 +1182,28 @@ export function DateCrewExperience() {
             onClick={handleDownload}
             data-interest
           >
-            <Download className="w-5 h-5 mr-1" aria-hidden="true" />
-            <span>I&apos;m interested in joining</span>
+            Download Lowkey for Android
           </button>
           <p className="close-note">
             <ShieldCheck className="lucide" aria-hidden="true" />
-            <span>Free · ~45 MB · Android 8.0+ · Verified Campus Only</span>
+            <span>Free · ~45 MB · Android 8.0+ · Verified campus students only.</span>
           </p>
         </div>
       </section>
 
-      {/* 8. DOWNLOAD & WAITLIST SECTION */}
-      <section
-        id="download"
-        className="relative w-full py-24 sm:py-32 bg-[#0c0c0c] border-t border-white/[0.08]"
-        aria-label="Download and Waitlist"
-      >
-        <div className="max-w-[1040px] mx-auto px-6 sm:px-8 text-center space-y-16">
-          <div className="space-y-4 max-w-xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-xs font-mono-code text-[var(--pink-light)]">
-              <Download className="w-3.5 h-3.5" />
-              <span>DIRECT SIDELOAD APK</span>
-            </div>
-            <h2 className="disp text-3xl sm:text-5xl text-white">
-              Ready to go lowkey?
-            </h2>
-            <p className="text-white/70 font-sans text-base">
-              Direct APK install. No Play Store account tracking, no corporate
-              bloat.
-            </p>
-          </div>
-
-          {/* 3 Step Android Install Guide */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
-            <div className="p-6 rounded-2xl bg-[#141414] border border-white/10 space-y-3">
-              <span className="w-8 h-8 rounded-full bg-[var(--pink)]/20 border border-[var(--pink)] flex items-center justify-center font-mono-code text-xs text-[var(--pink-light)] font-bold">
-                01
-              </span>
-              <h4 className="font-clash font-bold text-lg text-white">
-                Download the APK
-              </h4>
-              <p className="text-xs text-white/60 leading-relaxed font-sans">
-                Grab the verified ~45 MB installer package directly to your
-                Android smartphone.
-              </p>
-            </div>
-
-            <div className="p-6 rounded-2xl bg-[#141414] border border-white/10 space-y-3">
-              <span className="w-8 h-8 rounded-full bg-[var(--pink)]/20 border border-[var(--pink)] flex items-center justify-center font-mono-code text-xs text-[var(--pink-light)] font-bold">
-                02
-              </span>
-              <h4 className="font-clash font-bold text-lg text-white">
-                Allow Unknown Apps
-              </h4>
-              <p className="text-xs text-white/60 leading-relaxed font-sans">
-                When prompted, open Settings → Security and enable &ldquo;Install
-                unknown apps&rdquo; for your browser.
-              </p>
-            </div>
-
-            <div className="p-6 rounded-2xl bg-[#141414] border border-white/10 space-y-3">
-              <span className="w-8 h-8 rounded-full bg-[var(--pink)]/20 border border-[var(--pink)] flex items-center justify-center font-mono-code text-xs text-[var(--pink-light)] font-bold">
-                03
-              </span>
-              <h4 className="font-clash font-bold text-lg text-white">
-                Sign in with College Email
-              </h4>
-              <p className="text-xs text-white/60 leading-relaxed font-sans">
-                Enter your campus student email to instantly unlock your
-                college&apos;s private deck.
-              </p>
-            </div>
-          </div>
-
-          {/* Waitlist Form Component */}
-          <div className="pt-8 max-w-xl mx-auto">
-            <WaitlistForm />
-          </div>
-        </div>
+      {/* WAITLIST SECTION */}
+      <section className="py-12 px-4 max-w-xl mx-auto">
+        <WaitlistForm />
       </section>
 
-      {/* 9. CURVED FOOTER */}
+      {/* 5. FOOTER */}
       <footer className="foot" role="contentinfo">
         <div className="foot-top">
           <Link href="/" className="foot-mark">
-            <span>lowkey</span>
-            <span className="brand-dot" />
+            lowkey
           </Link>
-          <p>
-            The dating and connections app for verified Indian college students.
-          </p>
-          <a className="foot-apply" href="#download">
+          <p>Campus connections for verified Indian college students.</p>
+          <a className="foot-apply" href="#waitlist">
             <span>Want your campus deck opened? Join waitlist</span>
             <ArrowUpRight className="lucide" />
           </a>
@@ -1528,11 +1225,11 @@ export function DateCrewExperience() {
             <Link href="/privacy">Full Data Deletion</Link>
           </div>
           <div>
-            <h3>Founder &amp; Campus</h3>
-            <a href="#founder">Aryan Gupta</a>
-            <a href="#founder">Acropolis Institute (AITR)</a>
-            <a href="#founder">Indore, MP</a>
-            <a href="mailto:founder@lowkeysocial.in">Contact Aryan</a>
+            <h3>Origin</h3>
+            <a href="mailto:founder@lowkeysocial.in">Aryan Gupta</a>
+            <a href="mailto:founder@lowkeysocial.in">Acropolis Institute (AITR)</a>
+            <a href="mailto:founder@lowkeysocial.in">Indore, MP</a>
+            <a href="mailto:founder@lowkeysocial.in">Contact Founder</a>
           </div>
         </nav>
 
@@ -1555,13 +1252,12 @@ export function DateCrewExperience() {
         </div>
 
         <p className="foot-base">
-          © 2026 Lowkey. Made with ❤️ for Indian college students. All student
-          profiles verified privately. Acropolis Institute of Technology and
-          Research, Indore.
+          © 2026 Lowkey. Built with ❤️ for Indian college students. Acropolis
+          Institute of Technology and Research, Indore.
         </p>
       </footer>
 
-      {/* 10. FULL-SCREEN PHOTO LIGHTBOX MODAL */}
+      {/* 6. FULL-SCREEN PHOTO VIEWER LIGHTBOX */}
       <div
         className={`lb ${lbOpen ? "on" : ""}`}
         id="lb"
@@ -1602,11 +1298,11 @@ export function DateCrewExperience() {
           <button
             onClick={() => setLbIndex((i) => Math.max(0, i - 1))}
             disabled={lbIndex === 0}
-            className="px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 disabled:opacity-30 text-xs font-mono-code"
+            className="px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 disabled:opacity-30 text-xs font-mono text-[#FFF9F1]"
           >
             Prev
           </button>
-          <span className="text-xs font-mono-code text-white/60">
+          <span className="text-xs font-mono text-[#FFF9F1]/70">
             {fanPhotos[lbIndex]?.name} • {fanPhotos[lbIndex]?.branch}
           </span>
           <button
@@ -1614,15 +1310,15 @@ export function DateCrewExperience() {
               setLbIndex((i) => Math.min(fanPhotos.length - 1, i + 1))
             }
             disabled={lbIndex === fanPhotos.length - 1}
-            className="px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 disabled:opacity-30 text-xs font-mono-code"
+            className="px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 disabled:opacity-30 text-xs font-mono text-[#FFF9F1]"
           >
             Next
           </button>
         </div>
-        <p className="lb-hint">Tap Prev / Next or press ESC to exit</p>
+        <p className="lb-hint">Swipe to see more or tap Prev / Next</p>
       </div>
 
-      {/* 11. FLOATING ACTION DOCK (.bar) */}
+      {/* 7. FLOATING ACTION DOCK (.bar) */}
       <div className="bar" id="bar" role="region" aria-label="Quick actions">
         <div className="bar-in">
           <button
@@ -1633,7 +1329,7 @@ export function DateCrewExperience() {
             aria-label="Save profile to shortlist"
             aria-pressed={saved}
           >
-            <Heart className={`w-5 h-5 ${saved ? "fill-[var(--pink)]" : ""}`} />
+            <Heart className="lucide" />
           </button>
 
           <button
@@ -1642,11 +1338,7 @@ export function DateCrewExperience() {
             onClick={handleDownload}
             data-interest
           >
-            <Download className="w-4 h-4 mr-1.5" />
-            <span>Download APK</span>
-            <span className="text-[10px] bg-black/40 px-2 py-0.5 rounded-full ml-1 font-mono-code">
-              ~45 MB
-            </span>
+            Download APK
           </button>
 
           <button
@@ -1656,12 +1348,12 @@ export function DateCrewExperience() {
             onClick={handleShare}
             aria-label="Copy link to share"
           >
-            <Share2 className="w-4 h-4" />
+            <Share2 className="lucide" />
           </button>
         </div>
       </div>
 
-      {/* 12. TOAST NOTIFICATION */}
+      {/* 8. TOAST NOTIFICATION */}
       <div
         className={`toast ${toastOn ? "on" : ""}`}
         id="toast"
@@ -1670,6 +1362,6 @@ export function DateCrewExperience() {
       >
         {toastMessage}
       </div>
-    </div>
+    </>
   );
 }
