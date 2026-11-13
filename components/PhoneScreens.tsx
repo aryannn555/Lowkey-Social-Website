@@ -28,7 +28,7 @@ import {
 export function ScreenChapter1() {
   const [typedText, setTypedText] = useState("");
   const [isVerified, setIsVerified] = useState(false);
-  const fullText = "aryan@acropolis.in";
+  const fullText = "student@college.edu.in";
 
   useEffect(() => {
     let currentIdx = 0;
@@ -75,7 +75,7 @@ export function ScreenChapter1() {
           Verify Campus Email
         </h4>
         <p className="text-xs text-white/70 mb-6">
-          Only @acropolis.in domain students are granted access.
+          Only verified college domain students are granted access.
         </p>
 
         {/* Input box */}
@@ -104,7 +104,7 @@ export function ScreenChapter1() {
               <span>Campus Verified</span>
             </div>
             <p className="text-[11px] text-white/90 leading-relaxed font-sans flex items-center gap-1.5 flex-wrap">
-              <span>Welcome, Acropolis student</span>
+              <span>Welcome, verified student</span>
               <GraduationCap className="w-3.5 h-3.5 text-[var(--pink)] inline" aria-hidden="true" />
               <span>You are inside your private college network.</span>
             </p>
@@ -190,7 +190,7 @@ export function ScreenChapter2() {
           <div className="relative h-44 rounded-xl bg-gradient-to-tr from-[#38162b] to-[#1a1118] p-3 flex flex-col justify-between overflow-hidden">
             <span className="px-2.5 py-1 rounded-full bg-black/70 text-[10px] font-mono-code text-white/90 w-fit flex items-center gap-1">
               <GraduationCap className="w-3 h-3 text-[var(--pink)]" aria-hidden="true" />
-              <span>Acropolis &apos;25</span>
+              <span>Class of &apos;25</span>
             </span>
 
             {/* Like Badge Overlay */}
@@ -495,7 +495,7 @@ export function ScreenChapter5() {
         <div>
           <h5 className="font-clash font-bold text-xs text-white">Aarav Patel</h5>
           <p className="text-[9px] font-mono-code text-white/70">
-            Acropolis CS &apos;26 • Mutual Match
+            B.Tech CS &apos;26 • Mutual Match
           </p>
         </div>
       </div>

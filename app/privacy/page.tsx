@@ -52,7 +52,7 @@ export default function PrivacyPage() {
             </p>
             <ul className="list-disc pl-6 space-y-2 text-white/80">
               <li>
-                <strong className="text-white">College Email Address:</strong> Used exclusively to verify your active enrollment and assign you to your specific college cluster (e.g. <span className="font-mono-code text-xs text-[var(--pink-light)]">student@acropolis.in</span>).
+                <strong className="text-white">College Email Address:</strong> Used exclusively to verify your active enrollment and assign you to your specific college cluster (e.g. <span className="font-mono-code text-xs text-[var(--pink-light)]">student@yourcollege.edu.in</span>).
               </li>
               <li>
                 <strong className="text-white">Profile Details:</strong> First name, age, college department/branch, graduation year, and self-selected interest tags.
@@ -77,7 +77,7 @@ export default function PrivacyPage() {
               </h2>
             </div>
             <p>
-              Every college on Lowkey exists in a private digital enclave. If you are verified at Acropolis Institute, you will <strong className="text-white">only ever see students verified at Acropolis Institute</strong>.
+              Every college on Lowkey exists in a private digital enclave. If you are verified at your college, you will <strong className="text-white">only ever see students verified at your specific institution</strong>.
             </p>
             <p className="text-white/80">
               Cross-college discovery does not exist. Strangers, alumni from external schools, or public Internet users cannot browse your campus deck, view your photos, or send you unsolicited messages.

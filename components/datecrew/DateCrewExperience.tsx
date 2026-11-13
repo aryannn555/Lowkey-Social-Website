@@ -37,25 +37,25 @@ if (typeof window !== "undefined") {
 const fanPhotos = [
   {
     src: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&q=80",
-    alt: "Ananya - B.Tech CS, Acropolis Institute",
+    alt: "Ananya - B.Tech CS '26",
     name: "Ananya",
     branch: "CS '26",
   },
   {
     src: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=900&q=80",
-    alt: "Devansh - B.Tech Mech, Acropolis Institute",
+    alt: "Devansh - B.Tech Mech '25",
     name: "Devansh",
     branch: "Mech '25",
   },
   {
     src: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=900&q=80",
-    alt: "Riya - B.Tech ECE, Acropolis Institute",
+    alt: "Riya - B.Tech ECE '26",
     name: "Riya",
     branch: "ECE '26",
   },
   {
     src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=900&q=80",
-    alt: "Aarav - B.Tech IT, Acropolis Institute",
+    alt: "Aarav - B.Tech IT '25",
     name: "Aarav",
     branch: "IT '25",
   },
@@ -965,15 +965,15 @@ export function DateCrewExperience() {
           {/* Chapter 2: Campus Network Route Map Card */}
           <article className="card c-mist">
             <div className="in">
-              <h3 className="disp">Indore to campuses across India</h3>
+              <h3 className="disp">Campuses across India</h3>
               <p>
-                Started at Acropolis Institute (AITR), Indore. Expanding across verified student campuses nationwide.
+                Connecting verified student campuses nationwide into private, trusted college networks.
               </p>
               <svg
                 className="route"
                 viewBox="0 0 320 132"
                 role="img"
-                aria-label="Acropolis Institute Indore connecting to campuses across India: 100% verified student network"
+                aria-label="Campus network connecting students across India: 100% verified student network"
               >
                 <path
                   d="M44 84 Q160 4 276 84"
@@ -997,10 +997,10 @@ export function DateCrewExperience() {
                   />
                 </g>
                 <text className="b" x="44" y="112" textAnchor="middle">
-                  AITR Indore
+                  Your Campus
                 </text>
                 <text x="44" y="128" textAnchor="middle">
-                  Birthplace
+                  Node
                 </text>
                 <text className="b" x="276" y="112" textAnchor="middle">
                   All India
@@ -1152,12 +1152,11 @@ export function DateCrewExperience() {
             <div className="in">
               <h3 className="disp">Built by one student</h3>
               <p>
-                Aryan Gupta, CS student at Acropolis Institute (AITR), Indore.
-                Built alone mostly at 2am for our campus.
+                Aryan Gupta, CS student and solo creator. Built alone mostly at 2am for our campus generation.
               </p>
               <div className="chips">
                 <span>
-                  <Code2 className="lucide" />AITR Indore &apos;26
+                  <Code2 className="lucide" />Student developer &apos;26
                 </span>
                 <span>
                   <Heart className="lucide" />Solo developer
@@ -1241,7 +1240,6 @@ export function DateCrewExperience() {
           <div>
             <h3>Origin</h3>
             <a href="mailto:founder@lowkeysocial.in">Aryan Gupta</a>
-            <a href="mailto:founder@lowkeysocial.in">Acropolis Institute (AITR)</a>
             <a href="mailto:founder@lowkeysocial.in">Indore, MP</a>
             <a href="mailto:founder@lowkeysocial.in">Contact Founder</a>
           </div>
@@ -1266,8 +1264,7 @@ export function DateCrewExperience() {
         </div>
 
         <p className="foot-base">
-          © 2026 Lowkey Social. Built with ❤️ for Indian college students. Acropolis
-          Institute of Technology and Research, Indore.
+          © 2026 Lowkey Social. Built with ❤️ for Indian college students nationwide.
         </p>
       </footer>
 

@@ -105,7 +105,7 @@ export function CurvedFooter() {
             <ul className="space-y-2.5 text-white/70">
               <li className="flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                <span>Acropolis Institute (AITR)</span>
+                <span>Indore Campus Hub</span>
               </li>
               <li className="flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />

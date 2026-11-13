@@ -102,7 +102,7 @@ const stories: StoryCard[] = [
     id: 8,
     chapter: "FOUNDER",
     title: "Built by one student.",
-    desc: "Aryan Gupta, Acropolis Institute '26. Built alone mostly at 2am for our own campus.",
+    desc: "Aryan Gupta, student developer '26. Built alone mostly at 2am for Indian college campuses.",
     accent: "from-pink-950/50 via-[#181818] to-[#101010]",
     icon: <Code2 className="w-6 h-6 text-[var(--pink)]" />,
     stat: "SOLO SHIPPED",

@@ -108,7 +108,7 @@ export function PinnedWordReveal() {
             <div className="w-12 h-12 rounded-full bg-purple-500/20 border border-purple-500/40 self-center flex items-center justify-center font-clash font-bold text-white text-lg">
               R
             </div>
-            <span className="text-[10px] text-white/70 font-mono-code">Acropolis &apos;26</span>
+            <span className="text-[10px] text-white/70 font-mono-code">Class of &apos;26</span>
           </div>
         </div>
 
@@ -167,7 +167,7 @@ export function PinnedWordReveal() {
               — Ananya Sharma, in her own words
             </p>
             <p className="text-xs font-mono-code text-[var(--pink-light)] mt-1">
-              B.Tech Computer Science • Acropolis Institute, Indore
+              B.Tech Computer Science • Indore
             </p>
           </div>
         </div>
