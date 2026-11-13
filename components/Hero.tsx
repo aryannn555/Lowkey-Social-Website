@@ -179,7 +179,7 @@ export default function Hero() {
                 <div className="relative h-[280px] bg-gradient-to-b from-[#3a182f] via-[#22101e] to-[#141414] p-5 flex flex-col justify-between">
                   <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/60 backdrop-blur-md text-[11px] font-mono-code text-white/90 border border-white/10 w-fit">
                     <GraduationCap className="w-3.5 h-3.5 text-[var(--pink)]" aria-hidden="true" />
-                    <span>Acropolis &apos;26</span>
+                    <span>Class of &apos;26</span>
                   </div>
 
                   {/* Centered avatar placeholder */}

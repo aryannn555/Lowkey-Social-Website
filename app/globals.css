@@ -960,6 +960,14 @@ img {
 /* 6. ACTION BAR */
 .bar {
   display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  position: absolute !important;
+  top: -9999px !important;
+  height: 0 !important;
+  width: 0 !important;
+  overflow: hidden !important;
 }
 
 .btn {
@@ -981,8 +989,10 @@ img {
 
 .btn.primary {
   flex: 1;
-  background: var(--forest);
-  color: #FFF9F1;
+  background: #FFF6EB !important;
+  background-color: #FFF6EB !important;
+  color: #1B1B1B !important;
+  border: 1.5px solid #1B1B1B !important;
   padding: 0 20px;
 }
 

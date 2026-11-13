@@ -8,10 +8,10 @@
 
 > "Lowkey into someone? So is your campus."
 
-Lowkey is a private, college-exclusive dating and social connections Android app built specifically for Indian college students. Signups are strictly gated by verified college email domains (e.g. `@acropolis.in`), ensuring every campus is its own isolated, trusted universe.
+Lowkey Social is a private, college-exclusive dating and social connections Android app built specifically for Indian college students. Signups are strictly gated by verified college email domains (e.g. `@yourcollege.edu.in`), ensuring every campus is its own isolated, trusted universe.
 
 Domain: **[lowkeysocial.in](https://lowkeysocial.in)**  
-Founder: **Aryan Gupta** (Acropolis Institute of Technology and Research, Indore)  
+Founder: **Aryan Gupta** (Indore)  
 GitHub: **[https://github.com/aryannn555/Lowkey-Social-Website](https://github.com/aryannn555/Lowkey-Social-Website)**
 
 ---

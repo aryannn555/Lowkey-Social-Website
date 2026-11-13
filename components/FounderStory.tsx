@@ -16,8 +16,8 @@ interface TimelineBeat {
 const beats: TimelineBeat[] = [
   {
     title: "I'm Aryan.",
-    tag: "AITR INDORE // 2AM",
-    text: "Computer science student at Acropolis Institute of Technology and Research, Indore. I build things alone, mostly at 2am.",
+    tag: "INDORE // 2AM",
+    text: "Computer science student and solo creator based in Indore. I build things alone, mostly at 2am.",
     placeholder: "[ONE LINE ABOUT YOU]",
   },
   {
@@ -112,7 +112,7 @@ export default function FounderStory() {
                         Founder &amp; Solo Developer
                       </p>
                       <p className="text-xs text-white/60 mt-1">
-                        Acropolis Institute (AITR) &apos;26
+                        Student Developer &apos;26
                       </p>
                     </div>
                     <div className="text-[10px] font-mono-code text-white/50 border border-dashed border-white/15 px-3 py-1.5 rounded-lg">

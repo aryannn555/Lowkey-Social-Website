@@ -117,7 +117,7 @@ export default function HeroScene() {
       ctx.fillStyle = "#FFFFFF";
       ctx.font = "bold 20px sans-serif";
       ctx.textAlign = "left";
-      ctx.fillText("🎓 Acropolis '26", 68, 88);
+      ctx.fillText("🎓 Campus '26", 68, 88);
 
       // Verified tag
       ctx.fillStyle = "rgba(232, 88, 154, 0.25)";

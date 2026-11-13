@@ -160,7 +160,7 @@ export default function Navbar() {
         >
           <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-white/[0.03] border border-white/[0.06] mb-4 text-xs font-mono-code text-white/70">
             <GraduationCap className="w-4 h-4 text-[var(--pink)] shrink-0" aria-hidden="true" />
-            <span>Campus-Exclusive • Acropolis &amp; Partner Colleges</span>
+            <span>Campus-Exclusive • Verified Partner Colleges</span>
           </div>
 
           <nav className="flex flex-col gap-2 text-base font-medium">

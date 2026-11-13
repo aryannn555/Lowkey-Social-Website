@@ -4,7 +4,7 @@ import React from "react";
 import { GraduationCap } from "lucide-react";
 
 const campuses = [
-  { name: "Acropolis Institute (AITR)", city: "Indore", status: "LIVE NOW", badge: "2,400+ Students" },
+  { name: "Indore Campuses", city: "Indore", status: "LIVE NOW", badge: "2,400+ Students" },
   { name: "IIT Indore", city: "Simrol", status: "LIVE NOW", badge: "1,180+ Students" },
   { name: "DAVV (IET)", city: "Indore", status: "VERIFIED", badge: "3,100+ Students" },
   { name: "Medi-Caps University", city: "Indore", status: "VERIFIED", badge: "2,800+ Students" },

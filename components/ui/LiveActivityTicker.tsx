@@ -15,7 +15,7 @@ const activities: Activity[] = [
   {
     icon: <Sparkles className="w-3.5 h-3.5 text-[var(--pink)]" />,
     text: "Mutual match unlocked in CS Lab",
-    campus: "Acropolis Institute",
+    campus: "Engineering Campus",
     time: "2m ago",
   },
   {
@@ -39,7 +39,7 @@ const activities: Activity[] = [
   {
     icon: <Sparkles className="w-3.5 h-3.5 text-[var(--gold)]" />,
     text: "Daily Picks refreshed for Batch '26",
-    campus: "AITR Indore",
+    campus: "Campus Central",
     time: "22m ago",
   },
 ];
