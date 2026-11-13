@@ -977,7 +977,7 @@ export function DateCrewExperience() {
                 <path
                   d="M44 84 Q160 4 276 84"
                   fill="none"
-                  stroke="#826244"
+                  stroke="#7A624A"
                   strokeWidth="2"
                   strokeLinecap="round"
                 />
