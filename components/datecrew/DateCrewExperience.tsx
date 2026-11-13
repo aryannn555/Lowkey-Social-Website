@@ -271,9 +271,9 @@ export function DateCrewExperience() {
         head.style.top = Math.max(16, top - 24 - head.offsetHeight) + "px";
       }
       const Wb = desk ? Math.min(vw - 120, 1100) : vw - 24;
-      G = { vw, vh, Wc, Hc, Wb, Hb, top, per: vh * (desk ? 0.7 : 0.55) };
+      G = { vw, vh, Wc, Hc, Wb, Hb, top, per: vh * (desk ? 0.48 : 0.4) };
       if (story) {
-        story.style.height = vh + n * G.per + "px";
+        story.style.height = vh + (n - 0.2) * G.per + "px";
       }
     };
 
@@ -721,20 +721,6 @@ export function DateCrewExperience() {
       }
     };
     window.addEventListener("keydown", onKeyDown);
-
-    // Animate closing entrance smoothly without blank delay
-    gsap.from([".avs", "#closeH", ".close-sub", ".close-act", "#closeWaitlist"], {
-      y: 20,
-      opacity: 0,
-      duration: 0.8,
-      ease: "power2.out",
-      stagger: 0.08,
-      scrollTrigger: {
-        trigger: "#closing",
-        start: "top 95%",
-        toggleActions: "play none none reverse",
-      },
-    });
 
     // Refresh ScrollTrigger to calculate all trigger distances accurately
     ScrollTrigger.refresh();
