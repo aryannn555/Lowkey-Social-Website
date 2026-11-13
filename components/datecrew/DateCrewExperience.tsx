@@ -766,7 +766,15 @@ export function DateCrewExperience() {
           <i />
         </div>
         <Link href="/" className="brand" aria-label="Lowkey Social - Home">
-          Lowkey Social
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/logo.png"
+            alt="Lowkey Social Logo"
+            className="brand-logo"
+            width={28}
+            height={28}
+          />
+          <span>Lowkey Social</span>
         </Link>
         <span className="priv">
           <Lock className="lucide" aria-hidden="true" />
@@ -850,7 +858,13 @@ export function DateCrewExperience() {
             aria-label="Download Lowkey Social APK"
             style={{ backgroundColor: "#FFF6EB", color: "#1B1B1B" }}
           >
-            <Download className="lucide" aria-hidden="true" />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/logo.png"
+              alt=""
+              aria-hidden="true"
+              className="w-5 h-5 rounded-[6px] object-cover border border-black/15 shadow-xs shrink-0"
+            />
             <span>Download Lowkey Social</span>
             <span className="cta-badge">APK • Free</span>
           </button>
@@ -1150,6 +1164,22 @@ export function DateCrewExperience() {
           {/* Chapter 8: Founder Card */}
           <article className="card c-blush">
             <div className="in">
+              <div className="flex items-center gap-3 mb-3">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/logo.png"
+                  alt="Lowkey Social"
+                  className="w-10 h-10 rounded-xl object-cover border border-[#1B1B1B]/15 shadow-sm shrink-0"
+                />
+                <div>
+                  <div className="text-[11px] font-mono-code font-bold uppercase tracking-wider text-[#7A696F]">
+                    Official Campus Build
+                  </div>
+                  <div className="text-sm font-bold text-[#1B1B1B]">
+                    Lowkey Social v1.0
+                  </div>
+                </div>
+              </div>
               <h3 className="disp">Built by one student</h3>
               <p>
                 Aryan Gupta, CS student and solo creator. Built alone mostly at 2am for our campus generation.
@@ -1180,6 +1210,16 @@ export function DateCrewExperience() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={fanPhotos[2].src} alt="" loading="lazy" />
         </div>
+        <div className="flex items-center justify-center -mt-2 mb-5" aria-hidden="true">
+          <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl sm:rounded-3xl bg-white p-1.5 sm:p-2 border-[1.5px] border-[#1B1B1B] shadow-[0_10px_25px_rgba(0,0,0,0.08),0_2px_6px_rgba(0,0,0,0.04)] flex items-center justify-center transform hover:scale-105 transition-transform duration-300">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/logo.png"
+              alt="Lowkey Social App Icon"
+              className="w-full h-full object-contain rounded-xl sm:rounded-2xl"
+            />
+          </div>
+        </div>
         <h2 className="disp" id="closeH">
           Ready to meet someone from your campus?
         </h2>
@@ -1195,7 +1235,14 @@ export function DateCrewExperience() {
             data-interest
             style={{ backgroundColor: "#FFF6EB", color: "#1B1B1B" }}
           >
-            Download Lowkey Social for Android
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/logo.png"
+              alt=""
+              aria-hidden="true"
+              className="w-7 h-7 rounded-lg object-cover border border-black/15 shadow-xs shrink-0"
+            />
+            <span>Download Lowkey Social for Android</span>
           </button>
           <p className="close-note">
             <ShieldCheck className="lucide" aria-hidden="true" />
@@ -1212,8 +1259,14 @@ export function DateCrewExperience() {
       {/* 5. FOOTER */}
       <footer className="foot" role="contentinfo" style={{ backgroundColor: "#FFF6EB", color: "#1B1B1B" }}>
         <div className="foot-top">
-          <Link href="/" className="foot-mark">
-            Lowkey Social
+          <Link href="/" className="foot-mark" style={{ display: "inline-flex", alignItems: "center", gap: "10px" }}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/logo.png"
+              alt="Lowkey Social"
+              className="w-7 h-7 rounded-lg object-cover border border-black/15 shadow-xs shrink-0"
+            />
+            <span>Lowkey Social</span>
           </Link>
           <p>Campus connections for verified Indian college students.</p>
           <a className="foot-apply" href="#waitlist">
