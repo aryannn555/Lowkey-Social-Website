@@ -198,13 +198,13 @@ export function DateCrewExperience() {
     // 2. Fan Geometry (DateCrew exact formula)
     const fanSlots = () => {
       const desk = window.innerWidth >= 900;
-      const w = fan ? fan.offsetWidth : (desk ? 230 : 150);
-      const step = desk ? w * 0.78 : w * 0.44;
+      const w = fan ? fan.offsetWidth : (desk ? 230 : 115);
+      const step = desk ? w * 0.78 : w * 0.68;
       return [
-        { x: -1.35 * step, y: desk ? 30 : 14, r: desk ? -11 : -8 },
-        { x: -0.45 * step, y: desk ? 6 : 3, r: desk ? -4 : -3 },
-        { x: 0.45 * step, y: desk ? 6 : 3, r: desk ? 4 : 3 },
-        { x: 1.35 * step, y: desk ? 30 : 14, r: desk ? 11 : 8 },
+        { x: -1.35 * step, y: desk ? 30 : 14, r: desk ? -11 : -10 },
+        { x: -0.45 * step, y: desk ? 6 : 4, r: desk ? -4 : -3 },
+        { x: 0.45 * step, y: desk ? 6 : 4, r: desk ? 4 : 3 },
+        { x: 1.35 * step, y: desk ? 30 : 14, r: desk ? 11 : 10 },
       ];
     };
 
@@ -223,7 +223,7 @@ export function DateCrewExperience() {
       const stage = document.querySelector<HTMLElement>(".stage");
       if (stage) {
         stage.style.paddingBottom =
-          Math.ceil(drop + (window.innerWidth < 900 ? -4 : 12)) + "px";
+          Math.ceil(drop + (window.innerWidth < 900 ? 14 : 12)) + "px";
       }
     };
     fitStage();
@@ -386,6 +386,7 @@ export function DateCrewExperience() {
     // Initial Fan Setup: always start spread out cleanly
     photos.forEach((el, i) => {
       const sl = fanSlots();
+      el.style.zIndex = `${i + 1}`;
       gsap.set(el, {
         x: sl[i].x,
         y: sl[i].y,
@@ -396,11 +397,11 @@ export function DateCrewExperience() {
     });
 
     let spread = false;
-    gsap.set("#fan", { autoAlpha: 0, y: 24 });
+    gsap.set("#fan", { autoAlpha: 0, y: 20 });
 
     const intro = gsap.timeline({ defaults: { ease: "power3.out" } });
     intro
-      .to("#fan", { autoAlpha: 1, y: 0, duration: 0.8, ease: "power2.out" }, 0.1)
+      .to("#fan", { autoAlpha: 1, y: 0, duration: 0.8, ease: "power2.out" }, 0.05)
       .add(() => {
         const sl = fanSlots();
         photos.forEach((el, i) => {
@@ -409,15 +410,15 @@ export function DateCrewExperience() {
             y: sl[i].y,
             rotate: sl[i].r,
             scale: 1,
-            duration: 1.2,
+            duration: 1.0,
             ease: "power3.inOut",
-            delay: Math.abs(i - 1.5) * 0.05,
+            delay: Math.abs(i - 1.5) * 0.04,
           });
         });
-      }, 0.4)
+      }, 0.2)
       .add(() => {
         spread = true;
-      }, 1.0);
+      }, 0.8);
 
     // Speed up intro on active wheel/touch scroll
     const hurry = () => {
@@ -432,19 +433,19 @@ export function DateCrewExperience() {
 
     let hovered = -1;
     const hoverIn = (idx: number) => {
-      if (!spread || idx === hovered) return;
       hovered = idx;
       const sl = fanSlots();
+      const desk = window.innerWidth >= 900;
       photos.forEach((el, i) => {
         const on = i === idx;
-        const push = on ? 0 : i < idx ? -6 : 6;
-        el.style.zIndex = on ? "10" : `${i}`;
+        const push = on ? 0 : i < idx ? (desk ? -8 : -5) : (desk ? 8 : 5);
+        el.style.zIndex = on ? "10" : `${i + 1}`;
         gsap.to(el, {
           x: sl[i].x + push,
-          y: on ? sl[i].y - 10 : sl[i].y,
-          rotate: on ? sl[i].r * 0.5 : sl[i].r,
-          scale: on ? 1.04 : 1,
-          duration: 0.6,
+          y: on ? sl[i].y - (desk ? 12 : 8) : sl[i].y,
+          rotate: on ? sl[i].r * 0.4 : sl[i].r,
+          scale: on ? (desk ? 1.04 : 1.05) : 1,
+          duration: 0.5,
           ease: "power3.out",
           overwrite: "auto",
         });
@@ -452,17 +453,16 @@ export function DateCrewExperience() {
     };
 
     const hoverOut = () => {
-      if (!spread) return;
       hovered = -1;
       const sl = fanSlots();
       photos.forEach((el, i) => {
-        el.style.zIndex = `${i}`;
+        el.style.zIndex = `${i + 1}`;
         gsap.to(el, {
           x: sl[i].x,
           y: sl[i].y,
           rotate: sl[i].r,
           scale: 1,
-          duration: 0.7,
+          duration: 0.6,
           ease: "power3.out",
           overwrite: "auto",
         });
@@ -788,7 +788,7 @@ export function DateCrewExperience() {
       fitStage();
       measure();
       if (st) renderCards(st.progress * n);
-      if (spread) hoverOut();
+      hoverOut();
       ScrollTrigger.refresh();
     };
 
