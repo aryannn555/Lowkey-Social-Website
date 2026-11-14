@@ -315,6 +315,24 @@ img {
   will-change: transform;
   border: 1.5px solid #1B1B1B;
   outline: 4px solid var(--ivory);
+  transform-origin: 50% 100%;
+}
+
+.ph:nth-child(1) {
+  transform: translate(-195px, 30px) rotate(-11deg);
+  z-index: 1;
+}
+.ph:nth-child(2) {
+  transform: translate(-65px, 6px) rotate(-4deg);
+  z-index: 2;
+}
+.ph:nth-child(3) {
+  transform: translate(65px, 6px) rotate(4deg);
+  z-index: 3;
+}
+.ph:nth-child(4) {
+  transform: translate(195px, 30px) rotate(11deg);
+  z-index: 4;
 }
 
 .ph img {
@@ -1154,10 +1172,31 @@ img {
     margin-top: 0;
   }
   .fan {
-    width: min(72vw, 240px);
-    height: min(72vw, 240px);
+    width: min(29vw, 115px);
+    aspect-ratio: 3/4;
+    height: auto;
     margin: 0 auto;
     position: relative;
+  }
+  .ph {
+    border-radius: 16px;
+    outline-width: 3px;
+  }
+  .ph:nth-child(1) {
+    transform: translate(-105px, 14px) rotate(-10deg);
+    z-index: 1;
+  }
+  .ph:nth-child(2) {
+    transform: translate(-35px, 4px) rotate(-3deg);
+    z-index: 2;
+  }
+  .ph:nth-child(3) {
+    transform: translate(35px, 4px) rotate(3deg);
+    z-index: 3;
+  }
+  .ph:nth-child(4) {
+    transform: translate(105px, 14px) rotate(10deg);
+    z-index: 4;
   }
   .hero .ctas {
     display: flex !important;
